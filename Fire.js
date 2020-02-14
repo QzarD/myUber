@@ -27,37 +27,13 @@ class Fire {
         });
     };
 
-    uploadPhotoAsync = (uri, filename) => {
-        return new Promise(async (res, rej) => {
-            const response = await fetch(uri);
-            const file = await response.blob();
-
-            let upload = firebase
-                .storage()
-                .ref(filename)
-                .put(file);
-
-            upload.on(
-                "state_changed",
-                snapshot => {},
-                err => {
-                    rej(err);
-                },
-                async () => {
-                    const url = await upload.snapshot.ref.getDownloadURL();
-                    res(url);
-                }
-            );
-        });
-    };
-
     createUser = async user => {
         let remoteUri = null;
 
         try {
             await firebase.auth().createUserWithEmailAndPassword(user.email, user.password);
 
-            let db = this.firestore.collection("users").doc(this.uid);
+            let db = this.firestore.collection("usersMyUber").doc(this.uid);
 
             db.set({
                 name: user.name,
@@ -65,11 +41,6 @@ class Fire {
                 avatar: null
             });
 
-            if (user.avatar) {
-                remoteUri = await this.uploadPhotoAsync(user.avatar, `avatars/${this.uid}`);
-
-                db.set({ avatar: remoteUri }, { merge: true });
-            }
         } catch (error) {
             alert("Error: ", error);
         }

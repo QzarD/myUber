@@ -1,5 +1,5 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\adminkes\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add react-native-community
+  C:\Program Files\nodejs\node.exe C:\Users\adminkes\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add @react-native-comunity/geolocation
 
 PATH: 
   C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\.bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\nodejs\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Git\cmd;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Users\adminkes\AppData\Roaming\npm;C:\Users\adminkes\AppData\Local\Microsoft\WindowsApps;;C:\Users\adminkes\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\PhpStorm 2019.2.1\bin;
@@ -14,7 +14,7 @@ Platform:
   win32 x64
 
 Trace: 
-  Error: https://registry.yarnpkg.com/react-native-community: Not found
+  Error: https://registry.yarnpkg.com/@react-native-comunity%2fgeolocation: Not found
       at Request.params.callback [as _callback] (C:\Users\adminkes\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:66947:18)
       at Request.self.callback (C:\Users\adminkes\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:140665:22)
       at Request.emit (events.js:305:20)
@@ -38,6 +38,8 @@ npm manifest:
     },
     "dependencies": {
       "@expo/vector-icons": "^10.0.6",
+      "@react-native-community/masked-view": "^0.1.6",
+      "core-js": "3",
       "expo": "~36.0.0",
       "firebase": "^7.8.1",
       "react": "~16.9.0",
@@ -1427,6 +1429,11 @@ Lockfile:
       wcwidth "^1.0.1"
       ws "^1.1.0"
   
+  "@react-native-community/masked-view@^0.1.6":
+    version "0.1.6"
+    resolved "https://registry.yarnpkg.com/@react-native-community/masked-view/-/masked-view-0.1.6.tgz#c7f2ac187c1f25aa8c30d11baa8f4398eca3bb84"
+    integrity sha512-PpMoeXwPUoldCRKDuSi+zK5rT+sJTW6ri6RdGPkSKRzU77Q1d9IaR0O5IKvBj0XSdL3p+dcOa05gk35aGDffBQ==
+  
   "@react-navigation/core@^3.5.2":
     version "3.5.2"
     resolved "https://registry.yarnpkg.com/@react-navigation/core/-/core-3.5.2.tgz#3a3d147b8419e5839e0f2ad4dea086bd2d307fe3"
@@ -2306,6 +2313,11 @@ Lockfile:
     dependencies:
       browserslist "^4.8.3"
       semver "7.0.0"
+  
+  core-js@3:
+    version "3.6.4"
+    resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.6.4.tgz#440a83536b458114b9cb2ac1580ba377dc470647"
+    integrity sha512-4paDGScNgZP2IXXilaffL9X7968RuvwlkK3xWtZRVqgd8SYNiVKRJvkFd1aqqEuPfN7E68ZHEp9hDj6lHj4Hyw==
   
   core-js@3.6.2:
     version "3.6.2"
