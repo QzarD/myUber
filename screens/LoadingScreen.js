@@ -1,18 +1,22 @@
-import React, {useEffect} from "react";
-import {View, Text, StyleSheet, ActivityIndicator} from "react-native";
+import React from "react";
+import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
 import * as firebase from "firebase";
 
-export const LoadingScreen = () => {
-    useEffect(firebase.auth().onAuthStateChanged(user => {
-        this.props.navigation.navigate(user ? "App" : "Auth");
-    }), [])
+export default class LoadingScreen extends React.Component {
+    componentDidMount() {
+        firebase.auth().onAuthStateChanged(user => {
+            this.props.navigation.navigate(user ? "App" : "Auth");
+        });
+    }
 
-    return (
-        <View style={styles.container}>
-            <Text>Loading...</Text>
-            <ActivityIndicator size="large"/>
-        </View>
-    );
+    render() {
+        return (
+            <View style={styles.container}>
+                <Text>Loading...</Text>
+                <ActivityIndicator size="large"/>
+            </View>
+        );
+    }
 }
 
 const styles = StyleSheet.create({

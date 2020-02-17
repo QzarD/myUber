@@ -3,11 +3,16 @@ import {View, Text, StyleSheet, TextInput, TouchableOpacity, TouchableWithoutFee
 import * as firebase from "firebase";
 
 export default class LoginScreen extends React.Component {
+    static navigationOptions = {
+        headerShown: false
+    };
+
     state = {
         email: "",
         password: "",
         errorMessage: null
     };
+
 
     handleLogin = () => {
         const {email, password} = this.state;

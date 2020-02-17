@@ -1,11 +1,11 @@
 import React from "react";
-import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, StatusBar } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+import {StyleSheet, Text, TextInput, View, TouchableOpacity, Image, StatusBar} from "react-native";
+import {Ionicons} from "@expo/vector-icons";
 import Fire from '../Fire';
 
 export default class SignupScreen extends React.Component {
     static navigationOptions = {
-        header: null
+        headerShown: false
     };
 
     state = {
@@ -24,13 +24,11 @@ export default class SignupScreen extends React.Component {
     render() {
         return (
             <View style={styles.container}>
-                <StatusBar barStyle="light-content"/>
                 <TouchableOpacity style={styles.back} onPress={() => this.props.navigation.goBack()}>
                     <Ionicons name="ios-arrow-round-back" size={32} color="#FFF"/>
                 </TouchableOpacity>
-                <View style={{ position: "absolute", top: 64, alignItems: "center", width: "100%" }}>
-                    <Text style={styles.greeting}>{`Hello!\nSign up to get started.`}</Text>
-                </View>
+
+                <Text style={styles.greeting}>{`Hello!\nSign up to get started.`}</Text>
 
                 <View style={styles.errorMessage}>
                     {this.state.errorMessage && <Text style={styles.error}>{this.state.errorMessage}</Text>}
@@ -41,43 +39,43 @@ export default class SignupScreen extends React.Component {
                         <Text style={styles.inputTitle}>Full Name</Text>
                         <TextInput
                             style={styles.input}
-                            onChangeText={name => this.setState({ user: { ...this.state.user, name } })}
+                            onChangeText={name => this.setState({user: {...this.state.user, name}})}
                             value={this.state.user.name}
                         />
                     </View>
 
-                    <View style={{ marginTop: 1 }}>
+                    <View style={{marginTop: 1}}>
                         <Text style={styles.inputTitle}>Email Address</Text>
                         <TextInput
                             style={styles.input}
                             autoCapitalize="none"
-                            onChangeText={email => this.setState({ user: { ...this.state.user, email } })}
+                            onChangeText={email => this.setState({user: {...this.state.user, email}})}
                             value={this.state.user.email}
                         />
                     </View>
 
-                    <View style={{ marginTop: 1 }}>
+                    <View style={{marginTop: 1}}>
                         <Text style={styles.inputTitle}>Password</Text>
                         <TextInput
                             style={styles.input}
                             secureTextEntry
                             autoCapitalize="none"
-                            onChangeText={password => this.setState({ user: { ...this.state.user, password } })}
+                            onChangeText={password => this.setState({user: {...this.state.user, password}})}
                             value={this.state.user.password}
                         />
                     </View>
                 </View>
 
                 <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
-                    <Text style={{ color: "#FFF", fontWeight: "500" }}>Sign up</Text>
+                    <Text style={{color: "#FFF", fontWeight: "500"}}>Sign up</Text>
                 </TouchableOpacity>
 
                 <TouchableOpacity
-                    style={{ alignSelf: "center", marginTop: 1 }}
+                    style={{alignSelf: "center", marginTop: 1}}
                     onPress={() => this.props.navigation.navigate("Login")}
                 >
-                    <Text style={{ color: "#414959", fontSize: 13 }}>
-                        Already have an account? <Text style={{ fontWeight: "500", color: "#E9446A" }}>Sign in</Text>
+                    <Text style={{color: "#414959", fontSize: 13}}>
+                        Already have an account? <Text style={{fontWeight: "500", color: "#E9446A"}}>Sign in</Text>
                     </Text>
                 </TouchableOpacity>
             </View>
@@ -93,7 +91,6 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "500",
         textAlign: "center",
-        color: "#FFF"
     },
     form: {
         marginBottom: 19,
@@ -140,6 +137,7 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         backgroundColor: "rgba(21, 22, 48, 0.1)",
         alignItems: "center",
-        justifyContent: "center"
+        justifyContent: "center",
+        zIndex: 5
     }
 });
