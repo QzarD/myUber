@@ -11,9 +11,9 @@ import LoginScreen from "./screens/LoginScreen";
 import LoadingScreen from "./screens/LoadingScreen";
 
 
-if (!firebase.apps.length) {
+/*if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
-}
+}*/
 
 const AppContainer = createStackNavigator({
     Home: HomeScreen,
@@ -33,7 +33,7 @@ export default createAppContainer(
           Auth: AuthStack
         },
         {
-          initialRouteName: "Loading"
+          initialRouteName: "App"
         }
     )
 );

@@ -1,19 +1,29 @@
 import React, {useEffect, useState} from "react";
 import {View, Text, StyleSheet, PermissionsAndroid, ActivityIndicator, TouchableOpacity, Dimensions} from "react-native";
-import MapView, {PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView from 'react-native-maps';
 import {Ionicons, MaterialIcons} from "@expo/vector-icons";
 
-const widthTel=Dimensions.get('window').width
+const screen=Dimensions.get('window')
 
 const HomeScreen = () => {
-    const [coords, setCoords] = useState({latitude: null, longitude: null})
+    const [coordsMyLocation, setCoordsMyLocation] = useState({latitude: null, longitude: null})
+    const [region, setRegion] = useState({latitude: 100,
+        longitude: 20,
+        latitudeDelta: 1,
+        longitudeDelta: 1})
 
 
     const localeCurrentPosition = () => {
         navigator.geolocation.getCurrentPosition(
             (position) => {
-                setCoords({latitude: position.coords.latitude, longitude: position.coords.longitude});
-                console.log("latitude: ",position.coords.latitude, "longitude: ",position.coords.longitude)
+                setCoordsMyLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
+                setRegion({
+                    latitude: position.coords.latitude,
+                    longitude: position.coords.longitude,
+                    latitudeDelta: 0.001,
+                    longitudeDelta: 0.004,
+                });
+                fetchAddress(position.coords.latitude, position.coords.longitude)
             },
             (error) => {
                 // See error code charts below.
@@ -29,30 +39,44 @@ const HomeScreen = () => {
 
     const centerMap=()=>{
         map.animateToRegion({
-            latitude: coords.latitude,
-            longitude: coords.longitude,
+            latitude: coordsMyLocation.latitude,
+            longitude: coordsMyLocation.longitude,
             latitudeDelta: 0.001,
             longitudeDelta: 0.004,
         })
     }
 
-    if(coords.latitude){
+    const fetchAddress = (lat,lon) => {
+        fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=500&keyword=building&key=AIzaSyCPI7BA17dVl-icguki6m5UwA9qf7DO-Iw`)
+            .then((response) => response.json())
+            .then((responseJson) => {
+                const regionLocationAddress = responseJson.results[0].formatted_address;
+                console.log({
+                    userLocation: regionLocationAddress
+                });
+            });
+    }
+
+    if(coordsMyLocation.latitude){
         return (
             <View style={styles.container}>
                 <MapView
                     style={styles.map}
                     showsUserLocation={true}
                     zoomEnabled={true}
+                    scrollEnabled={true}
                     showsMyLocationButton={false}
-                    ref={map=>{map=map}}
-                    initialRegion={{
-                        latitude: coords.latitude,
-                        longitude: coords.longitude,
-                        latitudeDelta: 0.001,
-                        longitudeDelta: 0.004,
+                    region={region}
+                    ref={ref => {
+                        map = ref;
                     }}
-
-                />
+                >
+                    {/*<MapView.Marker
+                        coordinate={{ "latitude": region.latitude,
+                            "longitude": region.longitude }}
+                        title={"Your Location"}
+                        draggable />*/}
+                </MapView>
                 <TouchableOpacity style={styles.menuButton} onPress={() => {}}>
                     <Ionicons name="ios-menu" size={32} color="black"/>
                 </TouchableOpacity>
@@ -60,13 +84,34 @@ const HomeScreen = () => {
                     <Ionicons name="md-arrow-forward" size={24} color="black"/>
                 </TouchableOpacity>
                 <Text style={styles.nameApp}>MyUber</Text>
+
+                <TouchableOpacity style={styles.where} onPress={() => {}}>
+                    <View style={{flex:1}}>
+                        <Text style={styles.fromTo}>Where from:</Text>
+                    </View>
+                    <View style={{flex:7}}>
+                        <Text style={styles.addressTitle}>Address, 1234</Text>
+                        <Text style={styles.addressSubTitle}>Change address</Text>
+                    </View>
+                </TouchableOpacity>
+
+                <Ionicons style={styles.flag} name="ios-pin" size={46} color="#FF536A"/>
+
                 <TouchableOpacity style={styles.myLocationButton} onPress={() => {centerMap()}}>
                     <MaterialIcons name="my-location" size={24} color="black"/>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.whereToButton} onPress={() => {centerMap()}}>
+                    <View style={styles.whereToButton__wrapper}>
+                        <Ionicons name="ios-search" size={22} color="black"/>
+                        <Text style={styles.whereToButton__text}> Where to?</Text>
+                    </View>
                 </TouchableOpacity>
             </View>
         );
     }
-    return <View style={styles.container}>
+    return <View style={styles.containerCenter}>
+        <Text>Loading Map...</Text>
         <ActivityIndicator size='large'/>
     </View>
 
@@ -77,23 +122,27 @@ const styles = StyleSheet.create({
     container: {
         flex: 1
     },
+    containerCenter:{
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center"
+    },
     map: {
         flex: 1
     },
     menuButton: {
         position: "absolute",
-        top: 48,
-        left: 20,
+        top: '7%',
+        left: '5%',
         width: 32,
         height: 32,
         alignItems: "center",
         justifyContent: "center",
-        zIndex: 5
     },
     orderButton: {
         position: "absolute",
-        top: 42,
-        right: 20,
+        top: '6%',
+        right: '5%',
         width: 44,
         height: 44,
         borderRadius: 22,
@@ -106,10 +155,15 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.4,
         shadowRadius: 3.5
     },
+    flag:{
+        position: "absolute",
+        top:(screen.height/2 -42),
+        left:(screen.width/2 -12),
+    },
     myLocationButton: {
         position: "absolute",
-        bottom: 100,
-        right: 20,
+        bottom: '15%',
+        right: '5%',
         width: 44,
         height: 44,
         borderRadius: 22,
@@ -128,7 +182,57 @@ const styles = StyleSheet.create({
         color: '#7a7a7a',
         top:35,
         width:200,
-        left:(widthTel/2 -100),
+        left:(screen.width/2 -100),
+        textAlign: 'center',
+    },
+    where:{
+        position: 'absolute',
+        top:'15%',
+        width:'80%',
+        left:(screen.width*0.06),
+        textAlign: 'center',
+        flexDirection: 'row',
+    },
+    fromTo:{
+        fontSize:14,
+        color: '#7a7a7a',
+        textAlign: 'center',
+        paddingTop:5
+    },
+    addressTitle:{
+        fontSize:35,
+        color: '#1a1a1a',
+        textAlign: 'center',
+    },
+    addressSubTitle:{
+        fontSize:17,
+        fontWeight: 'bold',
+        color: '#7a7a7a',
+        textAlign: 'center',
+    },
+    whereToButton:{
+        position: 'absolute',
+        bottom:'5%',
+        backgroundColor: 'white',
+        height:45,
+        width:'80%',
+        left:(screen.width*0.1),
+        borderRadius:22,
+        alignItems:'center',
+        shadowColor: '#000000',
+        elevation: 5,
+        shadowOpacity: 0.2,
+        shadowRadius: 3.5
+    },
+    whereToButton__wrapper:{
+        flexDirection: 'row',
+        alignItems:'center',
+        paddingTop: 9,
+    },
+    whereToButton__text:{
+        fontSize:18,
+        fontWeight: 'bold',
+        color: '#7a7a7a',
         textAlign: 'center',
     }
 });
