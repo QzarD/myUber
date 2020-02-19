@@ -5,8 +5,10 @@ import {Ionicons, MaterialIcons} from "@expo/vector-icons";
 
 const screen=Dimensions.get('window')
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
     const [coordsMyLocation, setCoordsMyLocation] = useState({latitude: null, longitude: null})
+    const [regionChangeProgress, setRegionChangeProgress] = useState(true)
+    const [regionLocationAddress, setRegionLocationAddress] = useState('')
     const [region, setRegion] = useState({latitude: 100,
         longitude: 20,
         latitudeDelta: 1,
@@ -43,18 +45,23 @@ const HomeScreen = () => {
             longitude: coordsMyLocation.longitude,
             latitudeDelta: 0.001,
             longitudeDelta: 0.004,
-        })
+        });
     }
 
     const fetchAddress = (lat,lon) => {
-        fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lon}&radius=500&keyword=building&key=AIzaSyCPI7BA17dVl-icguki6m5UwA9qf7DO-Iw`)
+        setRegionChangeProgress(true)
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${lat},${lon}&key=AIzaSyD4SD_GFjTY_D7jndv6rBP4azTeu6NNQFM`)
             .then((response) => response.json())
             .then((responseJson) => {
-                const regionLocationAddress = responseJson.results[0].formatted_address;
-                console.log({
-                    userLocation: regionLocationAddress
-                });
+                setRegionLocationAddress(responseJson.results[0].formatted_address);
+                setRegionChangeProgress(false);
+                console.log(responseJson.results[0].formatted_address)
             });
+    }
+
+    const onRegionChange=(data)=>{
+        setRegion(data);
+        fetchAddress(data.latitude, data.longitude)
     }
 
     if(coordsMyLocation.latitude){
@@ -66,7 +73,8 @@ const HomeScreen = () => {
                     zoomEnabled={true}
                     scrollEnabled={true}
                     showsMyLocationButton={false}
-                    region={region}
+                    initialRegion={region}
+                    onRegionChangeComplete={onRegionChange}
                     ref={ref => {
                         map = ref;
                     }}
@@ -85,23 +93,24 @@ const HomeScreen = () => {
                 </TouchableOpacity>
                 <Text style={styles.nameApp}>MyUber</Text>
 
-                <TouchableOpacity style={styles.where} onPress={() => {}}>
-                    <View style={{flex:1}}>
-                        <Text style={styles.fromTo}>Where from:</Text>
-                    </View>
-                    <View style={{flex:7}}>
-                        <Text style={styles.addressTitle}>Address, 1234</Text>
+                {regionChangeProgress ? null :
+                    <TouchableOpacity style={styles.where} onPress={() => {
+                        navigation.navigate('Where',{addressFrom:regionLocationAddress})
+                    }}>
+                        <Text style={styles.addressTitle}>
+                             {regionLocationAddress.split(',', 2).join(',')}
+                        </Text>
                         <Text style={styles.addressSubTitle}>Change address</Text>
-                    </View>
-                </TouchableOpacity>
+                    </TouchableOpacity>
+                }
 
                 <Ionicons style={styles.flag} name="ios-pin" size={46} color="#FF536A"/>
 
-                <TouchableOpacity style={styles.myLocationButton} onPress={() => {centerMap()}}>
+                <TouchableOpacity style={styles.myLocationButton} onPress={() => centerMap()}>
                     <MaterialIcons name="my-location" size={24} color="black"/>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.whereToButton} onPress={() => {centerMap()}}>
+                <TouchableOpacity style={styles.whereToButton} onPress={() => {fetchAddress(region.latitude,region.longitude)}}>
                     <View style={styles.whereToButton__wrapper}>
                         <Ionicons name="ios-search" size={22} color="black"/>
                         <Text style={styles.whereToButton__text}> Where to?</Text>
@@ -188,14 +197,12 @@ const styles = StyleSheet.create({
     where:{
         position: 'absolute',
         top:'15%',
-        width:'80%',
-        left:(screen.width*0.06),
+        width:'100%',
         textAlign: 'center',
-        flexDirection: 'row',
     },
     fromTo:{
         fontSize:14,
-        color: '#7a7a7a',
+        color: '#a7a7a7',
         textAlign: 'center',
         paddingTop:5
     },

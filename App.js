@@ -9,6 +9,7 @@ import {Ionicons} from '@expo/vector-icons';
 import {createBottomTabNavigator} from "react-navigation-tabs";
 import LoginScreen from "./screens/LoginScreen";
 import LoadingScreen from "./screens/LoadingScreen";
+import WhereScreen from "./screens/WhereScreen";
 
 
 /*if (!firebase.apps.length) {
@@ -17,7 +18,7 @@ import LoadingScreen from "./screens/LoadingScreen";
 
 const AppContainer = createStackNavigator({
     Home: HomeScreen,
-    Signup: HomeScreen
+    Where: WhereScreen,
 });
 
 const AuthStack = createStackNavigator({
