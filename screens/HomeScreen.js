@@ -50,13 +50,16 @@ const HomeScreen = ({navigation}) => {
 
     const fetchAddress = (lat,lon) => {
         setRegionChangeProgress(true)
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${lat},${lon}&key=AIzaSyD4SD_GFjTY_D7jndv6rBP4azTeu6NNQFM`)
+       /* fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${lat},${lon}&key=AIzaSyD4SD_GFjTY_D7jndv6rBP4azTeu6NNQFM`)
             .then((response) => response.json())
             .then((responseJson) => {
                 setRegionLocationAddress(responseJson.results[0].formatted_address);
                 setRegionChangeProgress(false);
                 console.log(responseJson.results[0].formatted_address)
-            });
+            });*/
+        setRegionLocationAddress('1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA');
+        console.log('1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA');
+        setRegionChangeProgress(false);
     }
 
     const onRegionChange=(data)=>{
@@ -95,7 +98,10 @@ const HomeScreen = ({navigation}) => {
 
                 {regionChangeProgress ? null :
                     <TouchableOpacity style={styles.where} onPress={() => {
-                        navigation.navigate('Where',{addressFrom:regionLocationAddress})
+                        navigation.navigate('Where',{
+                            addressFrom:regionLocationAddress, coordsMyLocation:coordsMyLocation,
+                            coordsFrom:region
+                        })
                     }}>
                         <Text style={styles.addressTitle}>
                              {regionLocationAddress.split(',', 2).join(',')}
