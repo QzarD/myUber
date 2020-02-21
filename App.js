@@ -19,6 +19,7 @@ import WhereScreen from "./screens/WhereScreen";
 const AppContainer = createStackNavigator({
     Home: HomeScreen,
     Where: WhereScreen,
+    MapChooseFromTo: HomeScreen
 });
 
 const AuthStack = createStackNavigator({

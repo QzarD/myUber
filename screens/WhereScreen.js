@@ -1,50 +1,60 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import {StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, Dimensions} from 'react-native';
 import {Ionicons} from "@expo/vector-icons";
 import {debounce} from "lodash";
+import ResultCard from "../components/ResultCard";
 
-const screen=Dimensions.get('window')
 
 function WhereScreen({navigation}) {
     const coordsMyLocation = navigation.getParam('coordsMyLocation');
+
     const [addressFromInput, setAddressFromInput] = useState(navigation.getParam('addressFrom').split(',')[0]);
     const [addressToInput, setAddressToInput] = useState('');
-    const [results, setResult] = useState([]);
-    const [onFocusFrom, setOnFocusFrom] = useState(null);
+    const [resultsFrom, setResultsFrom] = useState([]);
+    const [resultsTo, setResultsTo] = useState([]);
+    const [onFocusFrom, setOnFocusFrom] = useState(true);
     const [coordsFrom, setCoordsFrom] = useState(navigation.getParam('coordsFrom'));
+    const [coordsTo, setCoordsTo] = useState(null);
 
-    const fetchAddress = (text, lat, lon) => {
+    useEffect(() => {
+        setCoordsTo(navigation.getParam('coordsTo'));
+        setAddressToInput(navigation.getParam('addressTo'))
+        setCoordsFrom(navigation.getParam('coordsFrom'));
+        setAddressFromInput(navigation.getParam('addressFrom'))
+    }, [navigation]);
+
+    const fetchAddress = (pushFrom, text, lat, lon) => {
         fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyCPI7BA17dVl-icguki6m5UwA9qf7DO-Iw&input=${text}&origin=${lat},${lon}&components=country:us`)
             .then((response) => response.json())
             .then((responseJson) => {
-                setResult(responseJson.predictions);
+                pushFrom ?
+                    setResultsFrom(responseJson.predictions)
+                    : setResultsTo(responseJson.predictions)
             });
     }
 
-    const handler = useCallback(debounce((text) => {
-        fetchAddress(text, coordsMyLocation.latitude, coordsMyLocation.longitude)
+    const handler = useCallback(debounce((text, pushFrom) => {
+        fetchAddress(pushFrom, text, coordsMyLocation.latitude, coordsMyLocation.longitude);
     }, 1000), []);
 
-    const distanceCorrecting=(numb)=>{
-        if (numb<100){
-            return (`${numb} m`)
-        } else {
-            let x=Math.round(numb/1000);
-            return (`${x} km`)
-        }
-    }
-
-    const chooseFrom=(item)=>{
-        setAddressFromInput((item.description).split(',')[0])
+    const chooseFrom = (item, pushFrom) => {
+        pushFrom ? setAddressFromInput((item.description).split(',')[0]) : setAddressToInput((item.description).split(',')[0]);
         fetch(`https://maps.googleapis.com/maps/api/place/details/json?placeid=${item.place_id}&key=AIzaSyCPI7BA17dVl-icguki6m5UwA9qf7DO-Iw`)
             .then((response) => response.json())
             .then((responseJson) => {
-                setCoordsFrom({
-                    latitude: responseJson.result.geometry.location.lat,
-                    longitude: responseJson.result.geometry.location.lng,
-                    latitudeDelta: 0.001,
-                    longitudeDelta: 0.004,
-                });
+                pushFrom ?
+                        setCoordsFrom({
+                            latitude: responseJson.result.geometry.location.lat,
+                            longitude: responseJson.result.geometry.location.lng,
+                            latitudeDelta: 0.001,
+                            longitudeDelta: 0.004,
+                        })
+                    : setCoordsTo({
+                        latitude: responseJson.result.geometry.location.lat,
+                        longitude: responseJson.result.geometry.location.lng,
+                        latitudeDelta: 0.001,
+                        longitudeDelta: 0.004,
+                    });
             });
     }
 
@@ -55,10 +65,12 @@ function WhereScreen({navigation}) {
                     <Ionicons style={[styles.ico, onFocusFrom === true ? null : {paddingTop: 22}]}
                               name={onFocusFrom === true ? "ios-search" : "ios-radio-button-off"}
                               size={onFocusFrom === true ? 22 : 16} color="#FF536A"/>
-                    <TextInput style={styles.input} placeholder='Where from?'
+                    <TextInput style={[styles.input, (coordsFrom || onFocusFrom) ? null : {color: '#FF536A'}]}
+                               placeholder='Where from?'
                                onChangeText={text => {
                                    setAddressFromInput(text);
-                                   handler(text)
+                                   handler(text, true);
+                                   (coordsFrom) ? setCoordsFrom(null) : null
                                }}
                                value={addressFromInput}
                                autoFocus={true}
@@ -66,16 +78,26 @@ function WhereScreen({navigation}) {
                     {(addressFromInput && addressFromInput.length > 0 && onFocusFrom === true)
                         ?
                         <TouchableOpacity style={styles.x} onPress={() => {
-                            setAddressFromInput('')
+                            setAddressFromInput('');
+                            setCoordsFrom(null)
                         }}>
                             <Ionicons name="ios-close" size={33} color="#575757"/>
                         </TouchableOpacity>
                         : null
                     }
                     <View style={styles.button}>
-                        {onFocusFrom === true
+                        {onFocusFrom
                             ? <View style={styles.text_row}>
                                 <TouchableOpacity onPress={() => {
+                                    navigation.navigate('MapChooseFromTo', {
+                                        coordsMyLocation:coordsMyLocation,
+                                        addressFromInput:addressFromInput,
+                                        addressToInput:addressToInput,
+                                        coordsFrom:coordsFrom,
+                                        coordsTo:coordsTo,
+                                        mapChooseFromTo:true,
+                                        mapChooseTo:false
+                                    })
                                 }}>
                                     <Text style={styles.text}>Map</Text>
                                 </TouchableOpacity>
@@ -88,9 +110,15 @@ function WhereScreen({navigation}) {
                     <Ionicons style={[styles.ico, onFocusFrom === false ? null : {paddingTop: 22}]}
                               name={onFocusFrom === false ? "ios-search" : "ios-radio-button-off"}
                               size={onFocusFrom === false ? 22 : 16} color="#575757"/>
-                    <TextInput style={[styles.input, {borderTopColor: '#d2d2d2', borderTopWidth: 1}]}
+                    <TextInput style={[styles.input,
+                        {borderTopColor: '#d2d2d2', borderTopWidth: 1},
+                        (coordsTo || !onFocusFrom) ? null : {color: '#FF536A'}]}
                                placeholder='Where to?'
-                               onChangeText={text => setAddressToInput(text)}
+                               onChangeText={text => {
+                                   setAddressToInput(text);
+                                   handler(text, false);
+                                   (coordsTo) ? setCoordsTo(null) : null}
+                               }
                                value={addressToInput}
                                onFocus={() => setOnFocusFrom(false)}/>
                     <View style={{borderTopColor: '#d2d2d2', borderTopWidth: 1}}>
@@ -98,7 +126,8 @@ function WhereScreen({navigation}) {
                             ?
                             <TouchableOpacity style={styles.x}
                                               onPress={() => {
-                                                  setAddressToInput('')
+                                                  setAddressToInput('');
+                                                  setCoordsTo(null)
                                               }}>
                                 <Ionicons name="ios-close" size={33} color="#575757"/>
                             </TouchableOpacity>
@@ -106,9 +135,18 @@ function WhereScreen({navigation}) {
                         }
                     </View>
                     <View style={[styles.button, {borderTopColor: '#d2d2d2', borderTopWidth: 1}]}>
-                        {onFocusFrom === false
+                        {!onFocusFrom
                             ? <View style={styles.text_row}>
                                 <TouchableOpacity onPress={() => {
+                                    navigation.navigate('MapChooseFromTo', {
+                                        coordsMyLocation:coordsMyLocation,
+                                        addressFromInput:addressFromInput,
+                                        addressToInput:addressToInput,
+                                        coordsFrom:coordsFrom,
+                                        coordsTo:coordsTo,
+                                        mapChooseFromTo:true,
+                                        mapChooseTo:true
+                                    })
                                 }}>
                                     <Text style={styles.text}>Map</Text>
                                 </TouchableOpacity>
@@ -118,18 +156,13 @@ function WhereScreen({navigation}) {
                     </View>
                 </View>
             </View>
-            {results.length>0 && <FlatList data={results} keyExtractor={(item)=>item.id} renderItem={({item})=>(
-                <View style={styles.result}>
-                    <TouchableOpacity style={styles.resultTouch} onPress={()=>{chooseFrom(item)}}>
-                        <View style={styles.result__address}>
-                            <Text style={styles.result__address_text}>{item.description.split(',', 1)}</Text>
-                            <Text style={styles.result__address_subtext}>{item.description.split(',').slice(1).join(',')}</Text>
-                        </View>
-                        <View style={styles.result__distance}>
-                            <Text style={styles.result__distance_text}>{distanceCorrecting(item.distance_meters)}</Text>
-                        </View>
-                    </TouchableOpacity>
-                </View>
+            {onFocusFrom && resultsFrom.length > 0 &&
+            <FlatList data={resultsFrom} keyExtractor={(item) => item.id} renderItem={({item}) => (
+                <ResultCard item={item} touch={chooseFrom} onFocusFrom={onFocusFrom}/>
+            )}/>}
+            {!onFocusFrom && resultsTo.length > 0 &&
+            <FlatList data={resultsTo} keyExtractor={(item) => item.id} renderItem={({item}) => (
+                <ResultCard item={item} touch={chooseFrom} onFocusFrom={onFocusFrom}/>
             )}/>}
 
 
@@ -183,35 +216,10 @@ const styles = StyleSheet.create({
     x: {
         width: 25,
         textAlign: 'center',
-        paddingTop: 14
+        paddingTop: 14,
+        marginLeft: 10
     },
-    result: {
-        marginLeft:30,
-        borderBottomColor: '#e5e5e5',
-        borderBottomWidth: 1,
-    },
-    resultTouch: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingVertical: 10,
-    },
-    result__address: {
-        width:(screen.width-140)
-    },
-    result__distance: {
-    },
-    result__address_text: {
-        fontSize: 17,
-    },
-    result__address_subtext: {
-        color: '#6c6c6c',
-        paddingLeft: 3
-    },
-    result__distance_text: {
-        color: '#6c6c6c',
-        paddingTop: 13,
-        paddingRight: 5
-    }
+
 });
 
 WhereScreen.navigationOptions = () => ({
