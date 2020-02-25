@@ -10,6 +10,7 @@ import {createBottomTabNavigator} from "react-navigation-tabs";
 import LoginScreen from "./screens/LoginScreen";
 import LoadingScreen from "./screens/LoadingScreen";
 import WhereScreen from "./screens/WhereScreen";
+import FindDriverScreen from "./screens/FindDriverScreen";
 
 
 /*if (!firebase.apps.length) {
@@ -19,7 +20,8 @@ import WhereScreen from "./screens/WhereScreen";
 const AppContainer = createStackNavigator({
     Home: HomeScreen,
     Where: WhereScreen,
-    MapChooseFromTo: HomeScreen
+    MapChooseFromTo: HomeScreen,
+    FindDriver: FindDriverScreen
 });
 
 const AuthStack = createStackNavigator({
@@ -35,7 +37,7 @@ export default createAppContainer(
           Auth: AuthStack
         },
         {
-          initialRouteName: "App"
+          initialRouteName: "Loading"
         }
     )
 );

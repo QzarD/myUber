@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useCallback} from "react";
 import {
     View,
     Text,
@@ -6,13 +6,18 @@ import {
     PermissionsAndroid,
     ActivityIndicator,
     TouchableOpacity,
-    Dimensions, TextInput
+    Dimensions, TextInput, Modal, Button
 } from "react-native";
 import MapView from 'react-native-maps';
 import {Ionicons, MaterialIcons} from "@expo/vector-icons";
 import Polyline from "@mapbox/polyline";
+import {debounce} from "lodash";
+import Fire from '../Fire';
 
 const screen = Dimensions.get('window')
+
+const firebase = require("firebase");
+require("firebase/firestore");
 
 const HomeScreen = ({navigation}) => {
     const mapChooseFromTo = navigation.getParam('mapChooseFromTo')
@@ -35,6 +40,12 @@ const HomeScreen = ({navigation}) => {
     const [coordsTo, setCoordsTo] = useState(null);
 
     const [coords, setCoords] = useState(null);
+    const [distance, setDistance] = useState(null);
+    const [completedRoute, setCompletedRoute] = useState(false);
+    const [getDirectionsButtonDisabled, setGetDirectionsButtonDisabled] = useState(false);
+    const [transportCardChoice, setTransportCardChoice] = useState(1);
+    const [showModalAddInfo, setShowModalAddInfo] = useState(false);
+    const [addInfo, setAddInfo] = useState('');
 
     useEffect(() => {
         localeCurrentPosition()
@@ -106,12 +117,16 @@ const HomeScreen = ({navigation}) => {
                 }
                 setRegionLocationAddress(responseJson.results[0].formatted_address);
                 setRegionChangeProgress(false);
-                console.log(responseJson.results[0].formatted_address)
+                /*console.log(responseJson.results[0].formatted_address)*/
             });/*
         setRegionLocationAddress('1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA');
         console.log('1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA');*/
         setRegionChangeProgress(false);
     }
+
+    const waitFetchAddress = useCallback(debounce((lat, lon) => {
+        fetchAddress(lat, lon);
+    }, 1000), []);
 
     const onRegionChange = (data) => {
         setRegion(data);
@@ -120,7 +135,14 @@ const HomeScreen = ({navigation}) => {
         } else {
             setCoordsTo(data)
         }
-        fetchAddress(data.latitude, data.longitude)
+        waitFetchAddress(data.latitude, data.longitude)
+    }
+
+    const distanceRound=(distance, rate, min)=>{
+        let x=Math.round(distance/rate);
+        if (x<10){
+            return  `min ${min}$`
+        } else {return `min ${x}$`}
     }
 
     const getDirections=(coordsFrom, coordsTo)=>{
@@ -128,6 +150,7 @@ const HomeScreen = ({navigation}) => {
         let lonFrom=coordsFrom.longitude;
         let latTo=coordsTo.latitude;
         let lonTo=coordsTo.longitude;
+        setGetDirectionsButtonDisabled(true)
         fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${latFrom},${lonFrom}&destination=${latTo},${lonTo}&key=AIzaSyAxDMt-Yh3pq8AIVDV7EtniQ9HHEFricS8`)
             .then((response) => response.json())
             .then((responseJson) => {
@@ -138,7 +161,39 @@ const HomeScreen = ({navigation}) => {
                     }
                 })
                 setCoords(coords)
+                setDistance(responseJson.routes[0].legs[0].distance.value)
+                setCompletedRoute(true)
+                setGetDirectionsButtonDisabled(false)
             });
+    }
+
+    const hendleOrder=()=>{
+        Fire.shared.addOrder({transportCardChoice:transportCardChoice,
+            distance:distance,
+            coords:coords,
+            addressFromInput:addressFromInput,
+            coordsFrom:coordsFrom,
+            addressToInput:addressToInput,
+            coordsTo:coordsTo,
+            addInfo:addInfo,
+            openOrder:true,
+            completeOrder:false
+        })
+            .then(ref=>{
+                navigation.navigate('FindDriver', {
+                    id:ref.id,
+                    distance:distance,
+                    coords:coords,
+                    addressFromInput:addressFromInput,
+                    coordsFrom:coordsFrom,
+                    addressToInput:addressToInput,
+                    coordsTo:coordsTo,
+                    addInfo:addInfo,
+                })
+            })
+            .catch(err=>{
+                alert(err)
+            })
     }
 
     if (coordsMyLocation.latitude) {
@@ -151,7 +206,7 @@ const HomeScreen = ({navigation}) => {
                     scrollEnabled={true}
                     showsMyLocationButton={false}
                     initialRegion={region}
-                    onRegionChangeComplete={onRegionChange}
+                    onRegionChangeComplete={completedRoute ? null : onRegionChange}
                     ref={ref => {
                         map = ref;
                     }}
@@ -166,12 +221,21 @@ const HomeScreen = ({navigation}) => {
 
                 <Text style={styles.nameApp}>MyUber</Text>
 
-                <Ionicons style={styles.flag} name="ios-pin" size={46} color={(mapChooseFromTo && mapChooseTo) ?"#575757":"#FF536A"}/>
+                {!completedRoute &&
+                <Ionicons style={styles.flag} name="ios-pin" size={46}
+                          color={(mapChooseFromTo && mapChooseTo) ? "#575757" : "#FF536A"}/>
+                }
 
-                <TouchableOpacity style={[styles.myLocationButton, {bottom: mapChooseFromTo ? 230 : '15%'}]}
+                <TouchableOpacity style={[styles.myLocationButton, {bottom: mapChooseFromTo ? (completedRoute ? 340 : 230) : '15%'}]}
                                   onPress={() => centerMap()}>
                     <MaterialIcons name="my-location" size={24} color="black"/>
                 </TouchableOpacity>
+
+                {completedRoute &&
+                    <TouchableOpacity style={styles.back} onPress={() => setCompletedRoute(false)}>
+                        <Ionicons name="ios-undo" size={30} color="#FF536A"/>
+                    </TouchableOpacity>
+                }
 
                 {mapChooseFromTo
                     ?
@@ -237,14 +301,77 @@ const HomeScreen = ({navigation}) => {
                                         value={addressToInput}/>
                                 </TouchableOpacity>
                             }
-                            <Text style={styles.menuMapChooseFromTo_text}>min 5$</Text>
+                            {completedRoute &&
+                                <Text style={styles.menuMapChooseFromTo_text}>{distanceRound(distance, 100, 10)}</Text>
+                            }
                         </View>
-                        <View style={styles.menuMapChooseFromTo_row}>
-                            <TouchableOpacity style={styles.menuMapChooseFromTo_touch}
-                                              onPress={() => getDirections(coordsFrom,coordsTo)}>
-                                <Text style={styles.menuMapChooseFromTo_touch_text}>OK</Text>
-                            </TouchableOpacity>
-                        </View>
+                        {completedRoute && <>
+                            <View style={styles.menuMapChooseFromTo_row}>
+                                <TouchableOpacity style={[styles.transportCard, transportCardChoice===1 && {flex:1,
+                                    backgroundColor: '#f0f0f0'}]}
+                                onPress={()=>setTransportCardChoice(1)}>
+                                    <Text style={styles.transportCard_text}>Eco</Text>
+                                    <Text style={styles.transportCard_subtext}>{distanceRound(distance, 100, 10)}</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={[styles.transportCard, transportCardChoice===2 && {flex:2,
+                                    backgroundColor: '#f0f0f0'}]}
+                                                  onPress={()=>setTransportCardChoice(2)}>
+                                    <Text style={styles.transportCard_text}>Comfort</Text>
+                                    <Text style={styles.transportCard_subtext}>{distanceRound(distance, 90, 15)}</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={[styles.transportCard, transportCardChoice===3 && {flex:3,
+                                    backgroundColor: '#f0f0f0'}]}
+                                                  onPress={()=>setTransportCardChoice(3)}>
+                                    <Text style={styles.transportCard_text}>Business</Text>
+                                    <Text style={styles.transportCard_subtext}>{distanceRound(distance, 70, 20)}</Text>
+                                </TouchableOpacity>
+                                <TouchableOpacity style={[styles.transportCard, transportCardChoice===4 && {flex:4,
+                                    backgroundColor: '#f0f0f0'}]}
+                                                  onPress={()=>setTransportCardChoice(4)}>
+                                    <Text style={styles.transportCard_text}>Truck</Text>
+                                    <Text style={styles.transportCard_subtext}>{distanceRound(distance, 40, 30)}</Text>
+                                </TouchableOpacity>
+                            </View>
+                            {showModalAddInfo
+                                ? <View style={[styles.menuMapChooseFromTo_row, {marginHorizontal:20}]}>
+                                    <TextInput style={{flex:1}} placeholder='Add info'
+                                        onChangeText={text => {
+                                            setAddInfo(text);
+                                        }}
+                                        value={addInfo}
+                                        autoFocus={true}
+                                    />
+                                    <TouchableOpacity onPress={()=>setShowModalAddInfo(false)}>
+                                        <Ionicons name="ios-add" size={32} color="black"/>
+                                    </TouchableOpacity>
+                                </View>
+                                : <View style={styles.menuMapChooseFromTo_row}>
+                                    <TouchableOpacity style={[styles.addInformation,
+                                        addInfo.length>0 ? {backgroundColor:'#c0fbbf'} : {backgroundColor:'#d2dafb'}]}
+                                                      onPress={() => setShowModalAddInfo(true)}>
+                                        <Text style={styles.addInformation_text}>{addInfo.length>0 ? 'Edit' : 'Add'} information</Text>
+                                    </TouchableOpacity>
+                                </View>
+                            }
+                            </>
+                        }
+                        {(coordsFrom && coordsTo) ?
+                            <View style={styles.menuMapChooseFromTo_row}>
+                                {getDirectionsButtonDisabled
+                                    ? <View style={styles.menuMapChooseFromTo_touch}>
+                                        <Text style={styles.menuMapChooseFromTo_touch_text}>OK</Text>
+                                    </View>
+                                    : <TouchableOpacity style={styles.menuMapChooseFromTo_touch}
+                                                        onPress={() => {
+                                                            if (completedRoute){
+                                                                hendleOrder()
+                                                            } else {getDirections(coordsFrom, coordsTo)}
+                                                        }}>
+                                        <Text style={styles.menuMapChooseFromTo_touch_text}>OK</Text>
+                                    </TouchableOpacity>
+                                }
+                            </View>
+                        : null}
                     </View>
                     : <>
                         <TouchableOpacity style={styles.menuButton} onPress={() => {
@@ -280,7 +407,6 @@ const HomeScreen = ({navigation}) => {
                         </TouchableOpacity>
                     </>
                 }
-
             </View>
         );
     }
@@ -432,8 +558,9 @@ const styles = StyleSheet.create({
         fontSize: 16,
         width: '18%',
         textAlign: 'center',
-        color: '#2d2d2d',
-        paddingRight:15
+        color: '#50509f',
+        paddingRight:15,
+        fontWeight:'bold'
     },
     menuMapChooseFromTo_touch: {
         height: 50,
@@ -450,6 +577,48 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#2d2d2d',
         paddingTop: 14
+    },
+    transportCard: {
+        borderRadius:6,
+        padding:4,
+        marginHorizontal:4,
+        width:screen.width/5,
+    },
+    transportCard_text: {
+        fontSize: 15,
+        textAlign: 'center',
+        color: '#2d2d2d',
+    },
+    transportCard_subtext: {
+        fontSize: 15,
+        textAlign: 'center',
+        fontWeight: 'bold',
+    },
+    back: {
+        position: "absolute",
+        left: '5%',
+        bottom:340,
+        width: 44,
+        height: 44,
+        borderRadius: 22,
+        backgroundColor: "white",
+        alignItems: "center",
+        justifyContent: "center",
+        shadowColor: '#000000',
+        elevation: 4,
+        shadowOpacity: 0.4,
+        shadowRadius: 3.5
+    },
+    addInformation:{
+        alignItems: "center",
+        flex:1,
+        marginHorizontal:screen.width/4,
+        paddingVertical:8,
+        borderRadius:30
+    },
+    addInformation_text:{
+        fontSize:16,
+        fontWeight:'bold'
     },
 });
 

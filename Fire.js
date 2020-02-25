@@ -6,17 +6,33 @@ class Fire {
         firebase.initializeApp(firebaseConfig);
     }
 
-    addPost = async ({ text, localUri }) => {
-        const remoteUri = await this.uploadPhotoAsync(localUri, `photos/${this.uid}/${Date.now()}`);
+    addOrder = async ({ transportCardChoice,
+                          distance,
+                          coords,
+                          addressFromInput,
+                          coordsFrom,
+                          addressToInput,
+                          coordsTo,
+                          addInfo,
+                          openOrder,
+                          completeOrder }) => {
 
         return new Promise((res, rej) => {
             this.firestore
-                .collection("posts")
+                .collection("orders")
                 .add({
-                    text,
+                    transportCardChoice,
+                    distance,
+                    coords,
+                    addressFromInput,
+                    coordsFrom,
+                    addressToInput,
+                    coordsTo,
+                    addInfo,
+                    openOrder,
+                    completeOrder,
                     uid: this.uid,
-                    timestamp: this.timestamp,
-                    image: remoteUri
+                    timestamp: this.timestamp
                 })
                 .then(ref => {
                     res(ref);
@@ -25,8 +41,7 @@ class Fire {
                     rej(error);
                 });
         });
-    };
-
+    }
     createUser = async user => {
         let remoteUri = null;
 
@@ -38,12 +53,18 @@ class Fire {
             db.set({
                 name: user.name,
                 email: user.email,
-                avatar: null
             });
 
         } catch (error) {
             alert("Error: ", error);
         }
+    };
+
+    delete = ({id}) => {
+        let deleteDoc = this.firestore.collection('orders').doc(id).delete();
+        return deleteDoc.then(res => {
+            console.log('Delete: ', res);
+        });
     };
 
     signOut = () => {
