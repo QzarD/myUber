@@ -46,6 +46,7 @@ const HomeScreen = ({navigation}) => {
     const [transportCardChoice, setTransportCardChoice] = useState(1);
     const [showModalAddInfo, setShowModalAddInfo] = useState(false);
     const [addInfo, setAddInfo] = useState('');
+/*    const [openMenu, setOpenMenu] = useState(false);*/
 
     useEffect(() => {
         localeCurrentPosition()
@@ -73,7 +74,7 @@ const HomeScreen = ({navigation}) => {
     }, [navigation]);
 
 
-    const localeCurrentPosition = () => {
+    const localeCurrentPosition = async () => {
         navigator.geolocation.getCurrentPosition(
             (position) => {
                 setCoordsMyLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
@@ -95,14 +96,13 @@ const HomeScreen = ({navigation}) => {
         );
     }
 
-    const centerMap = async () => {
-        await localeCurrentPosition();
-        map.animateToRegion({
+    const centerMap = () => {
+        localeCurrentPosition().then(r => map.animateToRegion({
             latitude: coordsMyLocation.latitude,
             longitude: coordsMyLocation.longitude,
             latitudeDelta: 0.001,
             longitudeDelta: 0.004,
-        });
+        }))
     }
 
     const fetchAddress = (lat, lon) => {
@@ -218,6 +218,23 @@ const HomeScreen = ({navigation}) => {
                         title={"Your Location"}
                         draggable />*/}
                 </MapView>
+
+     {/*           {openMenu &&
+                    <View style={styles.leftMenu}>
+                        <View style={styles.leftMenu_row}>
+                            <TouchableOpacity style={styles.leftMenu_row_touch}
+                                              onPress={()=>navigation.navigate('Home')}>
+                                <Text style={styles.leftMenu_row_touch_text}>Passenger</Text>
+                            </TouchableOpacity>
+                        </View>
+                        <View style={styles.leftMenu_row}>
+                            <TouchableOpacity style={styles.leftMenu_row_touch}
+                                              onPress={()=>navigation.navigate('Driver')}>
+                                <Text style={styles.leftMenu_row_touch_text}>Driver</Text>
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+                }*/}
 
                 <Text style={styles.nameApp}>MyUber</Text>
 
@@ -374,11 +391,21 @@ const HomeScreen = ({navigation}) => {
                         : null}
                     </View>
                     : <>
-                        <TouchableOpacity style={styles.menuButton} onPress={() => {
+                        <TouchableOpacity style={styles.menuButton} onPress={() => {navigation.openDrawer()
                         }}>
                             <Ionicons name="ios-menu" size={32} color="black"/>
                         </TouchableOpacity>
                         <TouchableOpacity style={styles.orderButton} onPress={() => {
+                            navigation.navigate('MapChooseFromTo', {
+                                coordsMyLocation:coordsMyLocation,
+                                addressFromInput:addressToInput,
+                                addressToInput:addressToInput,
+                                coordsFrom:region,
+                                coordsTo:coordsTo,
+                                mapChooseFromTo:true,
+                                mapChooseTo:true
+                            })
+
                         }}>
                             <Ionicons name="md-arrow-forward" size={24} color="black"/>
                         </TouchableOpacity>
@@ -398,7 +425,10 @@ const HomeScreen = ({navigation}) => {
                         }
 
                         <TouchableOpacity style={styles.whereToButton} onPress={() => {
-                            fetchAddress(region.latitude, region.longitude)
+                            navigation.navigate('Where', {
+                                addressFrom: regionLocationAddress, coordsMyLocation: coordsMyLocation,
+                                coordsFrom: region, whereToAutoFocus:true
+                            })
                         }}>
                             <View style={styles.whereToButton__wrapper}>
                                 <Ionicons name="ios-search" size={22} color="black"/>

@@ -42,6 +42,69 @@ class Fire {
                 });
         });
     }
+
+    deleteOrder = async ({ id }) => {
+
+        return new Promise((res, rej) => {
+            this.firestore
+                .collection("orders")
+                .doc(id)
+                .delete()
+                .then(ref => {
+                    res(ref);
+                })
+                .catch(error => {
+                    rej(error);
+                });
+        });
+    }
+
+    parse=order=>{
+        const {transportCardChoice,
+            distance,
+            coords,
+            addressFromInput,
+            coordsFrom,
+            addressToInput,
+            coordsTo,
+            addInfo,
+            openOrder,
+            completeOrder,
+            uid,
+            timestamp} = order.val();
+        const {key: _id}=order;
+        const createdAt=new Date(timestamp);
+
+        return {
+            _id,
+            createdAt,
+            transportCardChoice,
+            distance,
+            coords,
+            addressFromInput,
+            coordsFrom,
+            addressToInput,
+            coordsTo,
+            addInfo,
+            openOrder,
+            completeOrder,
+            uid
+        }
+    }
+
+    getOrder=setCoords=>{
+        this.firestore
+            .collection("orders")
+            .where('openOrder', '==', 'true')
+            .get()
+            .then((snapshot)=>{
+
+                    setCoords(snapshot)
+            })
+ //           .on("child_added",snapshot=>console.log(this.parse(snapshot)))
+    }
+
+
     createUser = async user => {
         let remoteUri = null;
 
@@ -58,13 +121,6 @@ class Fire {
         } catch (error) {
             alert("Error: ", error);
         }
-    };
-
-    delete = ({id}) => {
-        let deleteDoc = this.firestore.collection('orders').doc(id).delete();
-        return deleteDoc.then(res => {
-            console.log('Delete: ', res);
-        });
     };
 
     signOut = () => {

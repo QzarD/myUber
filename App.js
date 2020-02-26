@@ -6,16 +6,17 @@ import {createStackNavigator} from "react-navigation-stack";
 import HomeScreen from "./screens/HomeScreen";
 import SignupScreen from "./screens/SignupScreen";
 import {Ionicons} from '@expo/vector-icons';
-import {createBottomTabNavigator} from "react-navigation-tabs";
 import LoginScreen from "./screens/LoginScreen";
 import LoadingScreen from "./screens/LoadingScreen";
 import WhereScreen from "./screens/WhereScreen";
 import FindDriverScreen from "./screens/FindDriverScreen";
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import DriverScreen from "./screens/DriverScreen";
 
 
-/*if (!firebase.apps.length) {
+if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
-}*/
+}
 
 const AppContainer = createStackNavigator({
     Home: HomeScreen,
@@ -23,6 +24,15 @@ const AppContainer = createStackNavigator({
     MapChooseFromTo: HomeScreen,
     FindDriver: FindDriverScreen
 });
+const MyDrawerNavigator = createDrawerNavigator({
+    Client: {
+        screen: DriverScreen,
+    },
+    Driver: {
+        screen: AppContainer,
+    },
+});
+
 
 const AuthStack = createStackNavigator({
   Login: LoginScreen,
@@ -33,7 +43,7 @@ export default createAppContainer(
     createSwitchNavigator(
         {
           Loading: LoadingScreen,
-          App: AppContainer,
+          App: MyDrawerNavigator,
           Auth: AuthStack
         },
         {

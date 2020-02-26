@@ -56,7 +56,13 @@ function FindDriverScreen({navigation}) {
     }
 
     const deleteOrder=()=>{
-        Fire.shared.delete(navigation.getParam('id'))
+        Fire.shared.deleteOrder({id:navigation.getParam('id')})
+            .then(ref=>{
+                navigation.navigate('MapChooseFromTo')
+            })
+            .catch(err=>{
+                alert(err)
+            })
     }
 
     return (
@@ -94,7 +100,7 @@ function FindDriverScreen({navigation}) {
 
             <View style={styles.findCar}>
                 <Text style={styles.findCar_text}>Car search...</Text>
-                <TouchableOpacity onPress={()=>deleteOrder}  style={styles.findCar_cancel}>
+                <TouchableOpacity onPress={()=>deleteOrder()}  style={styles.findCar_cancel}>
                     <Ionicons name="ios-close-circle-outline" size={30} color="black"/>
                     <Text  style={styles.findCar_cancel_text}>Cancel</Text>
                 </TouchableOpacity>

@@ -7,6 +7,7 @@ import ResultCard from "../components/ResultCard";
 
 function WhereScreen({navigation}) {
     const coordsMyLocation = navigation.getParam('coordsMyLocation');
+    const whereToAutoFocus = navigation.getParam('whereToAutoFocus');
 
     const [addressFromInput, setAddressFromInput] = useState(navigation.getParam('addressFrom').split(',')[0]);
     const [addressToInput, setAddressToInput] = useState('');
@@ -73,7 +74,7 @@ function WhereScreen({navigation}) {
                                    (coordsFrom) ? setCoordsFrom(null) : null
                                }}
                                value={addressFromInput}
-                               autoFocus={true}
+                               autoFocus={!whereToAutoFocus}
                                onFocus={() => setOnFocusFrom(true)}/>
                     {(addressFromInput && addressFromInput.length > 0 && onFocusFrom === true)
                         ?
@@ -120,6 +121,7 @@ function WhereScreen({navigation}) {
                                    (coordsTo) ? setCoordsTo(null) : null}
                                }
                                value={addressToInput}
+                               autoFocus={whereToAutoFocus}
                                onFocus={() => setOnFocusFrom(false)}/>
                     <View style={{borderTopColor: '#d2d2d2', borderTopWidth: 1}}>
                         {(addressToInput && addressToInput.length > 0 && onFocusFrom === false)
