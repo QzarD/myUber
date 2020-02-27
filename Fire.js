@@ -59,49 +59,23 @@ class Fire {
         });
     }
 
-    parse=order=>{
-        const {transportCardChoice,
-            distance,
-            coords,
-            addressFromInput,
-            coordsFrom,
-            addressToInput,
-            coordsTo,
-            addInfo,
-            openOrder,
-            completeOrder,
-            uid,
-            timestamp} = order.val();
-        const {key: _id}=order;
-        const createdAt=new Date(timestamp);
-
-        return {
-            _id,
-            createdAt,
-            transportCardChoice,
-            distance,
-            coords,
-            addressFromInput,
-            coordsFrom,
-            addressToInput,
-            coordsTo,
-            addInfo,
-            openOrder,
-            completeOrder,
-            uid
-        }
-    }
-
-    getOrder=setCoords=>{
+    getOrder=setOpenOrders=>{
         this.firestore
             .collection("orders")
-            .where('openOrder', '==', 'true')
+            .where('openOrder', '==', true)
             .get()
             .then((snapshot)=>{
-
-                    setCoords(snapshot)
+                const orders=snapshot.map(doc=>{
+                    return doc.data()
+                })
+                setOpenOrders(orders)
+                /*let orders=[];
+                    snapshot.forEach(doc=>{
+                        orders.push(doc.data());
+                        setOpenOrders(orders)
+                    })*/
             })
- //           .on("child_added",snapshot=>console.log(this.parse(snapshot)))
+//            .on("child_added",snapshot=>setCoords(this.parse(snapshot)))
     }
 
 

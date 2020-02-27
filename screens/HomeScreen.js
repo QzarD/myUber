@@ -219,23 +219,6 @@ const HomeScreen = ({navigation}) => {
                         draggable />*/}
                 </MapView>
 
-     {/*           {openMenu &&
-                    <View style={styles.leftMenu}>
-                        <View style={styles.leftMenu_row}>
-                            <TouchableOpacity style={styles.leftMenu_row_touch}
-                                              onPress={()=>navigation.navigate('Home')}>
-                                <Text style={styles.leftMenu_row_touch_text}>Passenger</Text>
-                            </TouchableOpacity>
-                        </View>
-                        <View style={styles.leftMenu_row}>
-                            <TouchableOpacity style={styles.leftMenu_row_touch}
-                                              onPress={()=>navigation.navigate('Driver')}>
-                                <Text style={styles.leftMenu_row_touch_text}>Driver</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
-                }*/}
-
                 <Text style={styles.nameApp}>MyUber</Text>
 
                 {!completedRoute &&

@@ -12,6 +12,7 @@ import WhereScreen from "./screens/WhereScreen";
 import FindDriverScreen from "./screens/FindDriverScreen";
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import DriverScreen from "./screens/DriverScreen";
+import RouteMapScreen from "./screens/RouteMapScreen";
 
 
 if (!firebase.apps.length) {
@@ -24,9 +25,13 @@ const AppContainer = createStackNavigator({
     MapChooseFromTo: HomeScreen,
     FindDriver: FindDriverScreen
 });
+const DriverContainer = createStackNavigator({
+    HomeDriver: DriverScreen,
+    RouteMap: RouteMapScreen
+});
 const MyDrawerNavigator = createDrawerNavigator({
     Client: {
-        screen: DriverScreen,
+        screen: DriverContainer,
     },
     Driver: {
         screen: AppContainer,

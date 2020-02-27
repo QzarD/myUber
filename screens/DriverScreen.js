@@ -1,24 +1,47 @@
 import React, {useState, useCallback, useEffect} from 'react';
-import {StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, Dimensions} from 'react-native';
+import {StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, Dimensions, ActivityIndicator} from 'react-native';
 import {Ionicons, MaterialIcons} from "@expo/vector-icons";
 import {debounce} from "lodash";
 import ResultCard from "../components/ResultCard";
 import MapView from "react-native-maps";
 import Fire from "../Fire";
+import * as firebase from "firebase";
+import moment from "moment";
 
 const screen = Dimensions.get('window')
 
 function DriverScreen({navigation}) {
-
+    const openOrders=[];
     const [coordsMyLocation, setCoordsMyLocation] = useState({latitude: null, longitude: null})
     const [coords, setCoords] = useState(null);
-    console.log(coords)
+    const [oOrders, setOOrders] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
-    useEffect(() => {
-        localeCurrentPosition();
-        Fire.shared.getOrder(setCoords);
-        console.log('done')
-    }, []);
+    const getOpenOrders=()=>{
+        setIsLoading(true);
+        Fire.shared.firestore.collection("orders")
+            .where('openOrder', '==', true)
+            .get()
+            .then (snapshot=>{
+                snapshot.forEach(doc=>{
+                    let openOrder=doc.data();
+                    openOrder.id=doc.id;
+                    Fire.shared.firestore.collection("users")
+                        .doc(openOrder.uid)
+                        .onSnapshot(docUser=>{
+                            openOrder.user=docUser.data();
+                            openOrders.push(openOrder)
+                            setOOrders(openOrders)
+                            setIsLoading(false)
+                        })
+                })
+            })
+            .catch(err => {
+                console.log('Error getting documents', err);
+            });
+    }
+
+    useEffect(getOpenOrders, []);
 
     const localeCurrentPosition = () => {
         navigator.geolocation.getCurrentPosition(
@@ -32,6 +55,7 @@ function DriverScreen({navigation}) {
             {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000}
         );
     }
+    useEffect(localeCurrentPosition, []);
 
     const centerMap = async () => {
         await localeCurrentPosition();
@@ -43,24 +67,100 @@ function DriverScreen({navigation}) {
         });
     }
 
+    const transportChoice=(numberTransport)=>{
+        if (numberTransport===1){
+            return 'Eco'
+        }
+        if (numberTransport===2){
+            return 'Comfort'
+        }
+        if (numberTransport===3){
+            return 'Business'
+        } else {
+            return 'Truck'
+        }
+    }
+
     return (
-        <View style={styles.container}>
+            <View style={styles.container}>
+                <View style={styles.header}>
+                    <Text style={styles.headerTitle}>Feed</Text>
+                </View>
 
-            <TouchableOpacity style={styles.menuButton} onPress={() => {navigation.openDrawer()
-            }}>
-                <Ionicons name="ios-menu" size={32} color="black"/>
-            </TouchableOpacity>
+                <TouchableOpacity style={styles.menuButton} onPress={() => {navigation.openDrawer()
+                }}>
+                    <Ionicons name="ios-menu" size={32} color="black"/>
+                </TouchableOpacity>
 
-            <Text style={styles.nameApp}>MyUber (Driver)</Text>
+                <Text style={styles.nameApp}>MyUber (Driver)</Text>
 
-        </View>
-
-    );
+                {oOrders && <FlatList
+                    style={styles.feed}
+                    data={oOrders}
+                    keyExtractor={item => item.id}
+                    refreshing={isLoading}
+                    showsVerticalScrollIndicator={false}
+                    renderItem={({item}) => (
+                        <View style={styles.openOrderCard}>
+                            <View style={styles.openOrderCard_nameRow}>
+                                <Text >Name: {item.user.name}</Text>
+                                <Text >{moment(item.timestamp).fromNow()}</Text>
+                            </View>
+                            <Text>Type: {transportChoice(item.transportCardChoice)}</Text>
+                            <Text >Distance: {item.distance} m</Text>
+                            <Text >Address From: {item.addressFromInput}</Text>
+                            <Text >Address To: {item.addressToInput}</Text>
+                            {item.addInfo.length>0 && <Text >Info: {item.addInfo}</Text>}
+                            <View style={styles.openOrderCard_iconsRow}>
+                                <TouchableOpacity onPress={()=>{
+                                    navigation.navigate('RouteMap',{
+                                        coords:item.coords,
+                                        coordsFrom:item.coordsFrom,
+                                        coordsTo:item.coordsTo
+                                    })
+                                }}>
+                                    <Ionicons name="ios-globe" size={45} color="black"/>
+                                </TouchableOpacity>
+                                <TouchableOpacity onPress={()=>{}}>
+                                    <Ionicons name="ios-checkmark-circle-outline" size={45} color="black"/>
+                                </TouchableOpacity>
+                            </View>
+                        </View>
+                    )}
+                />
+                }
+            </View>
+        );
 }
 
 const styles = StyleSheet.create({
+    loading:{
+        flex:1,
+        justifyContent: "center",
+        alignItems: "center"
+    },
+    feed: {
+        marginHorizontal: 16
+    },
     container: {
         flex: 1
+    },
+    header: {
+        paddingTop: 64,
+        paddingBottom: 16,
+        backgroundColor: "#FFF",
+        alignItems: "center",
+        justifyContent: "center",
+        borderBottomWidth: 1,
+        borderBottomColor: "#EBECF4",
+        shadowColor: "#454D65",
+        shadowOffset: {height: 5},
+        shadowRadius: 15,
+        shadowOpacity: 0.2,
+    },
+    headerTitle: {
+        fontSize: 20,
+        fontWeight: "500"
     },
     map: {
         flex: 1
@@ -97,6 +197,23 @@ const styles = StyleSheet.create({
         width: 200,
         left: (screen.width / 2 - 100),
         textAlign: 'center',
+    },
+    openOrderCard: {
+        margin: 10,
+        paddingHorizontal:10,
+        paddingVertical:5,
+        borderColor:'black',
+        borderWidth:1,
+        borderRadius: 20
+    },
+    openOrderCard_nameRow: {
+        flexDirection:'row',
+        justifyContent:'space-between'
+    },
+    openOrderCard_iconsRow: {
+        flexDirection:'row',
+        justifyContent:'space-between',
+        marginHorizontal: '20%'
     },
 });
 

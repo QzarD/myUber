@@ -86,7 +86,7 @@ function FindDriverScreen({navigation}) {
                         draggable />*/}
             </MapView>
 
-            <TouchableOpacity style={styles.menuButton} onPress={() => {
+            <TouchableOpacity style={styles.menuButton} onPress={() => {navigation.openDrawer()
             }}>
                 <Ionicons name="ios-menu" size={32} color="black"/>
             </TouchableOpacity>
