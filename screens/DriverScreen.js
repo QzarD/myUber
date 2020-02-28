@@ -12,8 +12,6 @@ const screen = Dimensions.get('window')
 
 function DriverScreen({navigation}) {
     const openOrders=[];
-    const [coordsMyLocation, setCoordsMyLocation] = useState({latitude: null, longitude: null})
-    const [coords, setCoords] = useState(null);
     const [oOrders, setOOrders] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
 
@@ -40,32 +38,7 @@ function DriverScreen({navigation}) {
                 console.log('Error getting documents', err);
             });
     }
-
-    useEffect(getOpenOrders, []);
-
-    const localeCurrentPosition = () => {
-        navigator.geolocation.getCurrentPosition(
-            (position) => {
-                setCoordsMyLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
-            },
-            (error) => {
-                // See error code charts below.
-                console.log(error.code, error.message);
-            },
-            {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000}
-        );
-    }
-    useEffect(localeCurrentPosition, []);
-
-    const centerMap = async () => {
-        await localeCurrentPosition();
-        map.animateToRegion({
-            latitude: coordsMyLocation.latitude,
-            longitude: coordsMyLocation.longitude,
-            latitudeDelta: 0.001,
-            longitudeDelta: 0.004,
-        });
-    }
+    useEffect(getOpenOrders, [navigation.state.params]);
 
     const transportChoice=(numberTransport)=>{
         if (numberTransport===1){
@@ -84,7 +57,7 @@ function DriverScreen({navigation}) {
     return (
             <View style={styles.container}>
                 <View style={styles.header}>
-                    <Text style={styles.headerTitle}>Feed</Text>
+                    <Text style={styles.headerTitle}>Open Orders</Text>
                 </View>
 
                 <TouchableOpacity style={styles.menuButton} onPress={() => {navigation.openDrawer()
@@ -98,30 +71,64 @@ function DriverScreen({navigation}) {
                     style={styles.feed}
                     data={oOrders}
                     keyExtractor={item => item.id}
+                    onRefresh={getOpenOrders}
                     refreshing={isLoading}
                     showsVerticalScrollIndicator={false}
                     renderItem={({item}) => (
                         <View style={styles.openOrderCard}>
                             <View style={styles.openOrderCard_nameRow}>
-                                <Text >Name: {item.user.name}</Text>
+                                <View style={styles.openOrderCard_Row}>
+                                    <Text style={styles.openOrderCard_Row_bold}>Name: </Text>
+                                        <Text>{item.user.name}</Text>
+                                </View>
                                 <Text >{moment(item.timestamp).fromNow()}</Text>
                             </View>
-                            <Text>Type: {transportChoice(item.transportCardChoice)}</Text>
-                            <Text >Distance: {item.distance} m</Text>
-                            <Text >Address From: {item.addressFromInput}</Text>
-                            <Text >Address To: {item.addressToInput}</Text>
-                            {item.addInfo.length>0 && <Text >Info: {item.addInfo}</Text>}
+                            <View style={styles.openOrderCard_Row}>
+                                <Text style={styles.openOrderCard_Row_bold}>Type: </Text>
+                                <Text style={styles.openOrderCard_Row_text}>{transportChoice(item.transportCardChoice)}</Text>
+                            </View>
+                            <View style={styles.openOrderCard_Row}>
+                                <Text style={styles.openOrderCard_Row_bold}>Distance: </Text>
+                                <Text style={styles.openOrderCard_Row_text}>{item.distance} m</Text>
+                            </View>
+                            <View style={styles.openOrderCard_Row}>
+                                <Text style={styles.openOrderCard_Row_bold}>Address From: </Text>
+                                <Text style={styles.openOrderCard_Row_text}>{item.addressFromInput}</Text>
+                            </View>
+                            <View style={styles.openOrderCard_Row}>
+                                <Text style={styles.openOrderCard_Row_bold}>Address To: </Text>
+                                <Text style={styles.openOrderCard_Row_text}>{item.addressToInput}</Text>
+                            </View>
+                            {item.addInfo.length>0 &&
+                                <View style={styles.openOrderCard_Row}>
+                                    <Text style={styles.openOrderCard_Row_bold}>Info: </Text>
+                                    <Text style={styles.openOrderCard_Row_text}>{item.addInfo}</Text>
+                                </View>
+                            }
                             <View style={styles.openOrderCard_iconsRow}>
                                 <TouchableOpacity onPress={()=>{
                                     navigation.navigate('RouteMap',{
                                         coords:item.coords,
                                         coordsFrom:item.coordsFrom,
-                                        coordsTo:item.coordsTo
+                                        coordsTo:item.coordsTo,
+                                        name:item.user.name,
+                                        idOrder:item.id,
+                                        client:item
                                     })
                                 }}>
-                                    <Ionicons name="ios-globe" size={45} color="black"/>
+                                    <Ionicons name="ios-globe" size={45} color="green"/>
                                 </TouchableOpacity>
-                                <TouchableOpacity onPress={()=>{}}>
+                                <TouchableOpacity onPress={()=>{
+                                    navigation.navigate('RouteMap',{
+                                        coords:item.coords,
+                                        coordsFrom:item.coordsFrom,
+                                        coordsTo:item.coordsTo,
+                                        name:item.user.name,
+                                        idOrder:item.id,
+                                        client:item,
+                                        isAgree:true
+                                    })
+                                }}>
                                     <Ionicons name="ios-checkmark-circle-outline" size={45} color="black"/>
                                 </TouchableOpacity>
                             </View>
@@ -199,9 +206,9 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     openOrderCard: {
-        margin: 10,
+        margin: 2,
         paddingHorizontal:10,
-        paddingVertical:5,
+        paddingVertical:3,
         borderColor:'black',
         borderWidth:1,
         borderRadius: 20
@@ -209,6 +216,18 @@ const styles = StyleSheet.create({
     openOrderCard_nameRow: {
         flexDirection:'row',
         justifyContent:'space-between'
+    },
+    openOrderCard_Row: {
+        flexDirection:'row',
+        borderColor:'#d8d8d8',
+        borderBottomWidth: 1
+    },
+    openOrderCard_Row_bold: {
+        fontWeight: 'bold',
+        width:70
+    },
+    openOrderCard_Row_text: {
+        width:screen.width-130,
     },
     openOrderCard_iconsRow: {
         flexDirection:'row',

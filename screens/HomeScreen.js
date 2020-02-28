@@ -105,6 +105,23 @@ const HomeScreen = ({navigation}) => {
         }))
     }
 
+    function createMarker({latitude,longitude}) {
+        return {
+            latitude: latitude,
+            longitude: longitude,
+        };
+    }
+    const MARKERS = [
+        createMarker(coordsFrom || {}),
+        createMarker(coordsTo || {}),
+    ];
+    const fitPadding=()=> {
+        this.map.fitToCoordinates([MARKERS[0], MARKERS[1]], {
+            edgePadding: { top: 150, right: 150, bottom: screen.height/1.4+150, left: 150 },
+            animated: true,
+        });
+    }
+
     const fetchAddress = (lat, lon) => {
         setRegionChangeProgress(true)
         fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${lat},${lon}&key=AIzaSyD4SD_GFjTY_D7jndv6rBP4azTeu6NNQFM`)
@@ -164,6 +181,7 @@ const HomeScreen = ({navigation}) => {
                 setDistance(responseJson.routes[0].legs[0].distance.value)
                 setCompletedRoute(true)
                 setGetDirectionsButtonDisabled(false)
+                fitPadding()
             });
     }
 
@@ -200,7 +218,7 @@ const HomeScreen = ({navigation}) => {
         return (
             <View style={styles.container}>
                 <MapView
-                    style={styles.map}
+                    style={[styles.map]}
                     showsUserLocation={true}
                     zoomEnabled={true}
                     scrollEnabled={true}
