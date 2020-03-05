@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "741967739341",
+    "firebase_url": "https://socialclubapp-1597b.firebaseio.com",
+    "project_id": "socialclubapp-1597b",
+    "storage_bucket": "socialclubapp-1597b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741967739341:android:8e540e9eabb6e3a20d2c84",
+        "android_client_info": {
+          "package_name": "com.myuber"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "741967739341-2hlsqop027bm3nbo4j9n3jgm637u44rq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjNFUjxDHU77kR_6pinKTFl5_nDyRPwJE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "741967739341-2hlsqop027bm3nbo4j9n3jgm637u44rq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

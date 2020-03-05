@@ -69,13 +69,7 @@ class Fire {
                     return doc.data()
                 })
                 setOpenOrders(orders)
-                /*let orders=[];
-                    snapshot.forEach(doc=>{
-                        orders.push(doc.data());
-                        setOpenOrders(orders)
-                    })*/
             })
-//            .on("child_added",snapshot=>setCoords(this.parse(snapshot)))
     }
 
 
@@ -85,7 +79,7 @@ class Fire {
         try {
             await firebase.auth().createUserWithEmailAndPassword(user.email, user.password);
 
-            let db = this.firestore.collection("usersMyUber").doc(this.uid);
+            let db = this.firestore.collection("users").doc(this.uid);
 
             db.set({
                 name: user.name,
@@ -96,6 +90,41 @@ class Fire {
             alert("Error: ", error);
         }
     };
+
+    getUserInfo=(e)=>{
+        this.firestore.collection("users").doc(this.uid).get()
+            .then(doc => {
+                if (!doc.exists) {
+                    console.log('No such document!');
+                } else {
+                    e(doc.data())
+                }
+            })
+            .catch(err => {
+                console.log('Error getting document', err);
+            });
+    };
+    checkOrder = async ({id}) => {
+
+        return new Promise((res, rej) => {
+            this.firestore
+                .collection("orders")
+                .doc(id)
+                .get()
+                .then(ref => {
+                    res(ref.data());
+                })
+                .catch(error => {
+                    rej(error);
+                });
+        });
+    }
+
+    getToken=(e)=>{
+        firebase.database().ref('users/').on('value',function(snapshot){
+            console.log(snapshot.val())
+        })
+    }
 
     signOut = () => {
         firebase.auth().signOut();

@@ -49,7 +49,7 @@ const HomeScreen = ({navigation}) => {
 /*    const [openMenu, setOpenMenu] = useState(false);*/
 
     useEffect(() => {
-        localeCurrentPosition()
+        localeCurrentPosition();
     }, []);
 
     useEffect(() => {
@@ -124,7 +124,8 @@ const HomeScreen = ({navigation}) => {
 
     const fetchAddress = (lat, lon) => {
         setRegionChangeProgress(true)
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${lat},${lon}&key=AIzaSyD4SD_GFjTY_D7jndv6rBP4azTeu6NNQFM`)
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${
+            lat},${lon}&key=AIzaSyD4SD_GFjTY_D7jndv6rBP4azTeu6NNQFM`)
             .then((response) => response.json())
             .then((responseJson) => {
                 if (mapChooseFromTo && !mapChooseTo) {
@@ -168,7 +169,8 @@ const HomeScreen = ({navigation}) => {
         let latTo=coordsTo.latitude;
         let lonTo=coordsTo.longitude;
         setGetDirectionsButtonDisabled(true)
-        fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${latFrom},${lonFrom}&destination=${latTo},${lonTo}&key=AIzaSyAxDMt-Yh3pq8AIVDV7EtniQ9HHEFricS8`)
+        fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${
+            latFrom},${lonFrom}&destination=${latTo},${lonTo}&key=AIzaSyAxDMt-Yh3pq8AIVDV7EtniQ9HHEFricS8`)
             .then((response) => response.json())
             .then((responseJson) => {
                 const points=Polyline.decode(responseJson.routes[0].overview_polyline.points);
@@ -200,13 +202,8 @@ const HomeScreen = ({navigation}) => {
             .then(ref=>{
                 navigation.navigate('FindDriver', {
                     id:ref.id,
-                    distance:distance,
                     coords:coords,
-                    addressFromInput:addressFromInput,
                     coordsFrom:coordsFrom,
-                    addressToInput:addressToInput,
-                    coordsTo:coordsTo,
-                    addInfo:addInfo,
                 })
             })
             .catch(err=>{

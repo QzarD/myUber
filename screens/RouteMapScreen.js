@@ -39,8 +39,14 @@ const RouteMapScreen = ({navigation}) => {
     const [coordsDriver, setCoordsDriver] = useState(null);
     const [distance, setDistance] = useState(null);
     const [duration, setDuration] = useState(null);
-    const [nameCar, setNameCar] = useState('Audi Q3');
-    const [numberCar, setNumberCar] = useState('GJA-5630');
+    const [driver, setDriver] = useState({
+        avatar:null,
+        email:null,
+        name:null,
+        nameCar:null,
+        numberCar:null,
+        phoneNumber:null,
+    });
     const [questionBlank, setQuestionBlank] = useState(false);
     const [isTakeOpenOrder, setIsTakeOpenOrder] = useState(false);
 
@@ -52,6 +58,7 @@ const RouteMapScreen = ({navigation}) => {
         setCoords(navigation.getParam('coords'));
         setCoordsFrom(navigation.getParam('coordsFrom'));
         setCoordsTo(navigation.getParam('coordsTo'));
+        setDriver(navigation.getParam('driver'));
     }, [navigation]);
 
     function createMarker({latitude, longitude}) {
@@ -139,13 +146,17 @@ const RouteMapScreen = ({navigation}) => {
                             col.doc(idOrder)
                                 .update({
                                     driver: {
-                                        nameCar: nameCar,
-                                        numberCar: numberCar,
+                                        avatar:driver.avatar,
+                                        email:driver.email,
+                                        name:driver.name,
+                                        nameCar:driver.nameCar,
+                                        numberCar:driver.numberCar,
+                                        phoneNumber:driver.phoneNumber,
                                         duration: duration
                                     },
                                 })
                                 .then(() => {
-                                    console.log('all update')
+                                    console.log('Order update')
                                 })
                         })
                 } else {

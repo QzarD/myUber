@@ -1,5 +1,14 @@
 import React, {useState, useCallback, useEffect} from 'react';
-import {StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, Dimensions} from 'react-native';
+import {
+    StyleSheet,
+    Text,
+    View,
+    TextInput,
+    TouchableOpacity,
+    FlatList,
+    Dimensions,
+    ActivityIndicator
+} from 'react-native';
 import {Ionicons, MaterialIcons} from "@expo/vector-icons";
 import {debounce} from "lodash";
 import ResultCard from "../components/ResultCard";
@@ -9,28 +18,32 @@ import Fire from "../Fire";
 const screen = Dimensions.get('window')
 
 function FindDriverScreen({navigation}) {
-    const id=navigation.getParam('id');
-    const distance=navigation.getParam('distance');
-    const coords=navigation.getParam('coords');
-    const addressFromInput=navigation.getParam('addressFromInput');
-    const coordsFrom=navigation.getParam('coordsFrom');
-    const addressToInput=navigation.getParam('addressToInput');
-    const coordsTo=navigation.getParam('coordsTo');
-    const addInfo=navigation.getParam('addInfo');
-    const [openOrder, setOpenOrder]=useState(true);
-    const [completeOrder, setCompleteOrder]=useState(false);
+    const id = navigation.getParam('id');
+    const coords = navigation.getParam('coords');
+    const coordsFrom = navigation.getParam('coordsFrom');
+    const [coordsMyLocation, setCoordsMyLocation] = useState({latitude: null, longitude: null});
+    const [checkOrder, setCheckOrder] = useState({});
+    const [driver, setDriver] = useState(null);
 
-    const [region, setRegion] = useState({
-        latitude: 100,
-        longitude: 20,
-        latitudeDelta: 1,
-        longitudeDelta: 1
-    })
-    const [coordsMyLocation, setCoordsMyLocation] = useState({latitude: null, longitude: null})
 
     useEffect(() => {
-        localeCurrentPosition()
+        localeCurrentPosition();
+        checkOrderStatus()
     }, []);
+
+    const checkOrderStatus = () => {
+        Fire.shared.checkOrder({id: navigation.getParam('id')})
+            .then(ref => {
+                if (ref.openOrder === false) {
+                    setDriver(ref.driver)
+                } else {
+                    setTimeout(checkOrderStatus, 5000)
+                }
+            })
+            .catch(err => {
+                alert('You canceled the order')
+            })
+    }
 
     const localeCurrentPosition = () => {
         navigator.geolocation.getCurrentPosition(
@@ -55,12 +68,12 @@ function FindDriverScreen({navigation}) {
         });
     }
 
-    const deleteOrder=()=>{
-        Fire.shared.deleteOrder({id:navigation.getParam('id')})
-            .then(ref=>{
+    const deleteOrder = () => {
+        Fire.shared.deleteOrder({id: navigation.getParam('id')})
+            .then(ref => {
                 navigation.navigate('MapChooseFromTo')
             })
-            .catch(err=>{
+            .catch(err => {
                 alert(err)
             })
     }
@@ -78,7 +91,7 @@ function FindDriverScreen({navigation}) {
                     map = ref;
                 }}
             >
-                {coords &&<MapView.Polyline strokeWidth={2} strokeColor='red' coordinates={coords}/>}
+                {coords && <MapView.Polyline strokeWidth={2} strokeColor='red' coordinates={coords}/>}
                 {/*<MapView.Marker
                         coordinate={{ "latitude": region.latitude,
                             "longitude": region.longitude }}
@@ -86,25 +99,34 @@ function FindDriverScreen({navigation}) {
                         draggable />*/}
             </MapView>
 
-            <TouchableOpacity style={styles.menuButton} onPress={() => {navigation.openDrawer()
+            <TouchableOpacity style={styles.menuButton} onPress={() => {
+                navigation.openDrawer()
             }}>
                 <Ionicons name="ios-menu" size={32} color="black"/>
             </TouchableOpacity>
 
             <Text style={styles.nameApp}>MyUber</Text>
 
-            <TouchableOpacity style={[styles.myLocationButton, {bottom: 200}]}
+            <TouchableOpacity style={[styles.myLocationButton, {bottom: 230}]}
                               onPress={() => centerMap()}>
                 <MaterialIcons name="my-location" size={24} color="black"/>
             </TouchableOpacity>
 
-            <View style={styles.findCar}>
-                <Text style={styles.findCar_text}>Car search...</Text>
-                <TouchableOpacity onPress={()=>deleteOrder()}  style={styles.findCar_cancel}>
-                    <Ionicons name="ios-close-circle-outline" size={30} color="black"/>
-                    <Text  style={styles.findCar_cancel_text}>Cancel</Text>
-                </TouchableOpacity>
-            </View>
+            {driver ? <Text style={styles.findCar}> Hihihihihihih</Text>
+                : <View style={styles.findCar}>
+                    <Text style={styles.findCar_text}>Car search...</Text>
+                    <ActivityIndicator size='large'/>
+                    <TouchableOpacity onPress={() => deleteOrder()} style={styles.findCar_cancel}>
+                        <Ionicons name="ios-close-circle-outline" size={30} color="black"/>
+                        <Text style={styles.findCar_cancel_text}>Cancel</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => console.log(driver)} style={styles.findCar_cancel}>
+                        <Ionicons name="ios-close-circle-outline" size={30} color="black"/>
+                        <Text style={styles.findCar_cancel_text}>driver</Text>
+                    </TouchableOpacity>
+                </View>
+            }
+
         </View>
 
     );
@@ -158,21 +180,21 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         marginHorizontal: '1%',
         marginBottom: 25,
-        paddingHorizontal:35,
-        paddingVertical:25
+        paddingHorizontal: 35,
+        paddingVertical: 25
     },
     findCar_text: {
         fontSize: 25,
         marginBottom: 30
     },
     findCar_cancel: {
-        flexDirection:'row',
-        height:40,
+        flexDirection: 'row',
+        height: 40,
         alignItems: "center"
     },
     findCar_cancel_text: {
         alignItems: "center",
-        marginLeft:15
+        marginLeft: 15
     },
 });
 

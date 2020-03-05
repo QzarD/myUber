@@ -19,7 +19,7 @@ if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);
 }
 
-const AppContainer = createStackNavigator({
+const ClientContainer = createStackNavigator({
     Home: HomeScreen,
     Where: WhereScreen,
     MapChooseFromTo: HomeScreen,
@@ -31,10 +31,10 @@ const DriverContainer = createStackNavigator({
 });
 const MyDrawerNavigator = createDrawerNavigator({
     Client: {
-        screen: DriverContainer,
+        screen: ClientContainer,
     },
     Driver: {
-        screen: AppContainer,
+        screen: DriverContainer,
     },
 });
 

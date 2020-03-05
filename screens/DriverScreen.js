@@ -14,6 +14,14 @@ function DriverScreen({navigation}) {
     const openOrders=[];
     const [oOrders, setOOrders] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+    const [driver, setDriver] = useState({
+        avatar:null,
+        email:null,
+        name:null,
+        nameCar:null,
+        numberCar:null,
+        phoneNumber:null,
+    });
 
     const getOpenOrders=()=>{
         setIsLoading(true);
@@ -39,6 +47,8 @@ function DriverScreen({navigation}) {
             });
     }
     useEffect(getOpenOrders, [navigation.state.params]);
+
+    useEffect(()=>Fire.shared.getUserInfo(setDriver), []);
 
     const transportChoice=(numberTransport)=>{
         if (numberTransport===1){
@@ -113,7 +123,8 @@ function DriverScreen({navigation}) {
                                         coordsTo:item.coordsTo,
                                         name:item.user.name,
                                         idOrder:item.id,
-                                        client:item
+                                        client:item,
+                                        driver:driver
                                     })
                                 }}>
                                     <Ionicons name="ios-globe" size={45} color="green"/>
@@ -126,6 +137,7 @@ function DriverScreen({navigation}) {
                                         name:item.user.name,
                                         idOrder:item.id,
                                         client:item,
+                                        driver:driver,
                                         isAgree:true
                                     })
                                 }}>

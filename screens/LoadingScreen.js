@@ -1,9 +1,16 @@
 import React from "react";
 import { View, Text, StyleSheet, ActivityIndicator } from "react-native";
 import * as firebase from "firebase";
+import PushNotification from "react-native-push-notification";
 
 export default class LoadingScreen extends React.Component {
     componentDidMount() {
+        /*PushNotification.configure({
+            onNotification: function(notification) {
+                console.log("NOTIFICATION:", notification);
+            },
+        });*/
+
         firebase.auth().onAuthStateChanged(user => {
             this.props.navigation.navigate(user ? "App" : "Auth");
         });
