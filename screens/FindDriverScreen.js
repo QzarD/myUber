@@ -1,17 +1,13 @@
-import React, {useState, useCallback, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
     StyleSheet,
     Text,
     View,
-    TextInput,
     TouchableOpacity,
-    FlatList,
     Dimensions,
-    ActivityIndicator
+    ActivityIndicator, Linking
 } from 'react-native';
 import {Ionicons, MaterialIcons} from "@expo/vector-icons";
-import {debounce} from "lodash";
-import ResultCard from "../components/ResultCard";
 import MapView from "react-native-maps";
 import Fire from "../Fire";
 
@@ -20,10 +16,10 @@ const screen = Dimensions.get('window')
 function FindDriverScreen({navigation}) {
     const id = navigation.getParam('id');
     const coords = navigation.getParam('coords');
-    const coordsFrom = navigation.getParam('coordsFrom');
     const [coordsMyLocation, setCoordsMyLocation] = useState({latitude: null, longitude: null});
-    const [checkOrder, setCheckOrder] = useState({});
     const [driver, setDriver] = useState(null);
+    const [isCompleteOrder, setIsCompleteOrder] = useState(false);
+    const [stars, setStars] = useState(1);
 
 
     useEffect(() => {
@@ -34,15 +30,34 @@ function FindDriverScreen({navigation}) {
     const checkOrderStatus = () => {
         Fire.shared.checkOrder({id: navigation.getParam('id')})
             .then(ref => {
-                if (ref.openOrder === false) {
-                    setDriver(ref.driver)
+                if (ref.completeOrder === true){
+                    setIsCompleteOrder(true)
                 } else {
-                    setTimeout(checkOrderStatus, 5000)
+                    if (ref.openOrder === false) {
+                        setDriver(ref.driver);
+                        checkOrderStatus()
+                    } else {
+                        setTimeout(checkOrderStatus, driver ? 10000 : 5000)
+                    }
                 }
+
             })
             .catch(err => {
                 alert('You canceled the order')
             })
+    }
+
+    const deleteOrder = () => {
+        Fire.shared.deleteOrder({id: navigation.getParam('id')})
+            .then(ref => {
+                navigation.navigate('MapChooseFromTo')
+            })
+            .catch(err => {
+                alert(err)
+            })
+    }
+    const sendDriverRating = () => {
+        Fire.shared.sendRating(driver.uid, stars)
     }
 
     const localeCurrentPosition = () => {
@@ -66,16 +81,6 @@ function FindDriverScreen({navigation}) {
             latitudeDelta: 0.001,
             longitudeDelta: 0.004,
         });
-    }
-
-    const deleteOrder = () => {
-        Fire.shared.deleteOrder({id: navigation.getParam('id')})
-            .then(ref => {
-                navigation.navigate('MapChooseFromTo')
-            })
-            .catch(err => {
-                alert(err)
-            })
     }
 
     return (
@@ -107,12 +112,30 @@ function FindDriverScreen({navigation}) {
 
             <Text style={styles.nameApp}>MyUber</Text>
 
-            <TouchableOpacity style={[styles.myLocationButton, {bottom: 230}]}
-                              onPress={() => centerMap()}>
-                <MaterialIcons name="my-location" size={24} color="black"/>
-            </TouchableOpacity>
+            {!isCompleteOrder &&
+                <TouchableOpacity style={[styles.myLocationButton, {bottom: 230}]}
+                                                       onPress={() => centerMap()}>
+                    <MaterialIcons name="my-location" size={24} color="black"/>
+                </TouchableOpacity>
+            }
 
-            {driver ? <Text style={styles.findCar}> Hihihihihihih</Text>
+
+            {driver
+                ? (!isCompleteOrder && <View style={styles.isTakeOpenOrder}>
+                    <Text>Driver: {driver.name}</Text>
+                    <Text>Car: {driver.nameCar}, number: {driver.numberCar}</Text>
+                    <Text>Waiting time: {driver.duration}</Text>
+                    <View style={styles.isTakeOpenOrder_row}>
+                        <TouchableOpacity style={styles.isTakeOpenOrder_button}
+                                          onPress={() => Linking.openURL(`tel:${driver.phoneNumber}`)}>
+                            <Ionicons style={styles.isTakeOpenOrder_ico} name="ios-call" size={45} color="green"/>
+                        </TouchableOpacity>
+                        <TouchableOpacity style={styles.isTakeOpenOrder_button}>
+                            <Ionicons style={styles.isTakeOpenOrder_ico} name="ios-chatbubbles" size={45}
+                                      color="#fb5d58"/>
+                        </TouchableOpacity>
+                    </View>
+                </View>)
                 : <View style={styles.findCar}>
                     <Text style={styles.findCar_text}>Car search...</Text>
                     <ActivityIndicator size='large'/>
@@ -120,9 +143,39 @@ function FindDriverScreen({navigation}) {
                         <Ionicons name="ios-close-circle-outline" size={30} color="black"/>
                         <Text style={styles.findCar_cancel_text}>Cancel</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => console.log(driver)} style={styles.findCar_cancel}>
-                        <Ionicons name="ios-close-circle-outline" size={30} color="black"/>
-                        <Text style={styles.findCar_cancel_text}>driver</Text>
+                </View>
+            }
+            {isCompleteOrder &&
+                <View style={styles.isCompleteOrder}>
+                    <Text style={styles.isCompleteOrder_title}>Driver rating:</Text>
+                    <View style={styles.isCompleteOrder_starsRow}>
+                        <TouchableOpacity onPress={()=>setStars(1)}>
+                            <Ionicons style={styles.isCompleteOrder_starsRow_star}
+                                      name="ios-star" size={35} color="orange"/>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={()=>setStars(2)}>
+                            <Ionicons style={styles.isCompleteOrder_starsRow_star}
+                                      name={stars>1 ? "ios-star" : "ios-star-outline"} size={35} color="orange"/>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={()=>setStars(3)}>
+                            <Ionicons style={styles.isCompleteOrder_starsRow_star}
+                                      name={stars>2 ? "ios-star" : "ios-star-outline"} size={35} color="orange"/>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={()=>setStars(4)}>
+                            <Ionicons style={styles.isCompleteOrder_starsRow_star}
+                                      name={stars>3 ? "ios-star" : "ios-star-outline"} size={35} color="orange"/>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={()=>setStars(5)}>
+                            <Ionicons style={styles.isCompleteOrder_starsRow_star}
+                                      name={stars>4 ? "ios-star" : "ios-star-outline"} size={35} color="orange"/>
+                        </TouchableOpacity>
+                    </View>
+                    <TouchableOpacity style={styles.isCompleteOrder_button} onPress={()=>{
+                        sendDriverRating()
+                        setIsCompleteOrder(false)
+                        navigation.navigate('Home', {lastUpdate: new Date()})
+                    }}>
+                        <Text style={styles.isCompleteOrder_button_title}>OK</Text>
                     </TouchableOpacity>
                 </View>
             }
@@ -195,6 +248,63 @@ const styles = StyleSheet.create({
     findCar_cancel_text: {
         alignItems: "center",
         marginLeft: 15
+    },
+    isTakeOpenOrder: {
+        position: 'absolute',
+        bottom: '5%',
+        backgroundColor: '#f5f5f5',
+        width: '80%',
+        borderRadius: 20,
+        marginHorizontal: '10%',
+        padding: 10
+    },
+    isTakeOpenOrder_row: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: '18%'
+    },
+    isTakeOpenOrder_button: {
+        backgroundColor: 'white',
+        height: 60,
+        width: 60,
+        borderRadius: 30,
+        justifyContent: 'center',
+        alignItems: "center",
+    },
+    isCompleteOrder: {
+        position:'absolute',
+        top:(screen.height/2 - 85),
+        height:170,
+        left:(screen.width/2 - 150),
+        width:300,
+        backgroundColor:'white',
+        borderRadius:10,
+        paddingHorizontal:20,
+        paddingVertical: 10
+
+    },
+    isCompleteOrder_title:{
+        textAlign: 'center',
+        marginBottom:15
+    },
+    isCompleteOrder_starsRow:{
+        flexDirection:'row',
+        justifyContent:'space-between'
+    },
+    isCompleteOrder_starsRow_star:{
+        marginBottom:25
+    },
+    isCompleteOrder_button:{
+        backgroundColor:'#f5b981',
+        height:40,
+        marginHorizontal:40,
+        borderRadius:10,
+        justifyContent:'center'
+    },
+    isCompleteOrder_button_title:{
+        textAlign:'center',
+        fontWeight:'bold',
+        color:'#725639'
     },
 });
 

@@ -1,16 +1,14 @@
-import React, {useEffect, useState, useCallback} from "react";
+import React, {useEffect, useState} from "react";
 import {
     View,
     Text,
     StyleSheet,
-    PermissionsAndroid,
     ActivityIndicator,
     TouchableOpacity,
     Dimensions, TextInput, Alert, Button, Linking
 } from "react-native";
 import MapView from 'react-native-maps';
 import {Ionicons, MaterialIcons} from "@expo/vector-icons";
-import {debounce} from "lodash";
 import Fire from '../Fire';
 import Polyline from "@mapbox/polyline";
 
@@ -19,8 +17,8 @@ const ASPECT_RATIO = width / height;
 const LATITUDE_DELTA = 0.0043;
 const LONGITUDE_DELTA = LATITUDE_DELTA * ASPECT_RATIO;
 
-const firebase = require("firebase");
-require("firebase/firestore");
+/*const firebase = require("firebase");
+require("firebase/firestore");*/
 
 const RouteMapScreen = ({navigation}) => {
     const isAgree = navigation.getParam('isAgree')
@@ -130,6 +128,7 @@ const RouteMapScreen = ({navigation}) => {
     }
 
     const takeOpenOrder = () => {
+        let idDriver=Fire.shared.uid;
         let col = Fire.shared.firestore.collection("orders")
         col.doc(idOrder)
             .get()
@@ -138,26 +137,22 @@ const RouteMapScreen = ({navigation}) => {
                 if (doc.completeOrder === false && doc.openOrder === true) {
                     col.doc(idOrder)
                         .update({
-                            openOrder: false
+                            openOrder: false,
+                            driver: {
+                                uid:idDriver,
+                                avatar:driver.avatar,
+                                email:driver.email,
+                                name:driver.name,
+                                nameCar:driver.nameCar,
+                                numberCar:driver.numberCar,
+                                phoneNumber:driver.phoneNumber,
+                                duration: duration
+                            }
                         })
                         .then(() => {
                             setQuestionBlank(false)
                             setIsTakeOpenOrder(true)
-                            col.doc(idOrder)
-                                .update({
-                                    driver: {
-                                        avatar:driver.avatar,
-                                        email:driver.email,
-                                        name:driver.name,
-                                        nameCar:driver.nameCar,
-                                        numberCar:driver.numberCar,
-                                        phoneNumber:driver.phoneNumber,
-                                        duration: duration
-                                    },
-                                })
-                                .then(() => {
-                                    console.log('Order update')
-                                })
+                            console.log('Order update')
                         })
                 } else {
                     Alert.alert(
@@ -192,6 +187,28 @@ const RouteMapScreen = ({navigation}) => {
             .then(() => {
                 navigation.navigate('HomeDriver', {lastUpdate: new Date()})
             })
+    }
+
+    const distanceRound=(distance, rate, min)=>{
+        let x=Math.round(distance/rate);
+        if (x<10){
+            return  `${min}$`
+        } else {return `${x}$`}
+    }
+
+    const rateCar=()=>{
+        let transportCardChoice=client.transportCardChoice
+        if (transportCardChoice===2){
+            return 90
+        }
+        if (transportCardChoice===3){
+            return 70
+        }
+        if (transportCardChoice===4){
+            return 40
+        } else {
+            return 100
+        }
     }
 
     if (coordsMyLocation.latitude) {
@@ -274,6 +291,7 @@ const RouteMapScreen = ({navigation}) => {
                 <View style={styles.isTakeOpenOrder}>
                     <Text>Client: {client.user.name}</Text>
                     <Text>Address From: {client.addressFromInput}</Text>
+                    <Text> $</Text>
                     {client.addInfo && <Text>Add Info: {client.addInfo}</Text>}
                     <View style={styles.isTakeOpenOrder_row}>
                         <TouchableOpacity style={styles.isTakeOpenOrder_button}

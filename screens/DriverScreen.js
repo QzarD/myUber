@@ -1,12 +1,11 @@
-import React, {useState, useCallback, useEffect} from 'react';
-import {StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, Dimensions, ActivityIndicator} from 'react-native';
-import {Ionicons, MaterialIcons} from "@expo/vector-icons";
-import {debounce} from "lodash";
-import ResultCard from "../components/ResultCard";
-import MapView from "react-native-maps";
+import React, {useState, useEffect} from 'react';
+import {StyleSheet, Text, View, TouchableOpacity, FlatList, Dimensions, ActivityIndicator} from 'react-native';
+import {Ionicons} from "@expo/vector-icons";
 import Fire from "../Fire";
-import * as firebase from "firebase";
 import moment from "moment";
+
+const firebase = require("firebase");
+require("firebase/firestore");
 
 const screen = Dimensions.get('window')
 
@@ -16,6 +15,7 @@ function DriverScreen({navigation}) {
     const [isLoading, setIsLoading] = useState(false);
     const [driver, setDriver] = useState({
         avatar:null,
+        rating:null,
         email:null,
         name:null,
         nameCar:null,

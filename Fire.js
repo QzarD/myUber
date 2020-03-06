@@ -6,7 +6,8 @@ class Fire {
         firebase.initializeApp(firebaseConfig);
     }
 
-    addOrder = async ({ transportCardChoice,
+    addOrder = async ({
+                          transportCardChoice,
                           distance,
                           coords,
                           addressFromInput,
@@ -15,7 +16,8 @@ class Fire {
                           coordsTo,
                           addInfo,
                           openOrder,
-                          completeOrder }) => {
+                          completeOrder
+                      }) => {
 
         return new Promise((res, rej) => {
             this.firestore
@@ -43,7 +45,7 @@ class Fire {
         });
     }
 
-    deleteOrder = async ({ id }) => {
+    deleteOrder = async ({id}) => {
 
         return new Promise((res, rej) => {
             this.firestore
@@ -59,13 +61,13 @@ class Fire {
         });
     }
 
-    getOrder=setOpenOrders=>{
+    getOrder = setOpenOrders => {
         this.firestore
             .collection("orders")
             .where('openOrder', '==', true)
             .get()
-            .then((snapshot)=>{
-                const orders=snapshot.map(doc=>{
+            .then((snapshot) => {
+                const orders = snapshot.map(doc => {
                     return doc.data()
                 })
                 setOpenOrders(orders)
@@ -91,7 +93,7 @@ class Fire {
         }
     };
 
-    getUserInfo=(e)=>{
+    getUserInfo = (e) => {
         this.firestore.collection("users").doc(this.uid).get()
             .then(doc => {
                 if (!doc.exists) {
@@ -104,6 +106,29 @@ class Fire {
                 console.log('Error getting document', err);
             });
     };
+    sendRating = (id, rating) => {
+        const userRef=this.firestore.collection("users").doc(id)
+        userRef.get()
+            .then((doc) => {
+                let data = doc.data().rating
+                if (data.length < 40) {
+                    data.push(rating)
+                    userRef.update({
+                        rating:data
+                    })
+                } else {
+                    data.shift()
+                    data.push(rating)
+                    userRef.update({
+                        rating:data
+                    })
+                }
+            })
+            .catch(err => {
+                console.log('Error getting document', err);
+            });
+    };
+
     checkOrder = async ({id}) => {
 
         return new Promise((res, rej) => {
@@ -120,8 +145,8 @@ class Fire {
         });
     }
 
-    getToken=(e)=>{
-        firebase.database().ref('users/').on('value',function(snapshot){
+    getToken = (e) => {
+        firebase.database().ref('users/').on('value', function (snapshot) {
             console.log(snapshot.val())
         })
     }

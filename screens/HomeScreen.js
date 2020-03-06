@@ -3,10 +3,9 @@ import {
     View,
     Text,
     StyleSheet,
-    PermissionsAndroid,
     ActivityIndicator,
     TouchableOpacity,
-    Dimensions, TextInput, Modal, Button
+    Dimensions, TextInput
 } from "react-native";
 import MapView from 'react-native-maps';
 import {Ionicons, MaterialIcons} from "@expo/vector-icons";
@@ -15,9 +14,9 @@ import {debounce} from "lodash";
 import Fire from '../Fire';
 
 const screen = Dimensions.get('window')
-
+/*
 const firebase = require("firebase");
-require("firebase/firestore");
+require("firebase/firestore");*/
 
 const HomeScreen = ({navigation}) => {
     const mapChooseFromTo = navigation.getParam('mapChooseFromTo')
