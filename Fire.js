@@ -16,7 +16,8 @@ class Fire {
                           coordsTo,
                           addInfo,
                           openOrder,
-                          completeOrder
+                          completeOrder,
+                          driverWaiting
                       }) => {
 
         return new Promise((res, rej) => {
@@ -33,6 +34,7 @@ class Fire {
                     addInfo,
                     openOrder,
                     completeOrder,
+                    driverWaiting,
                     uid: this.uid,
                     timestamp: this.timestamp
                 })

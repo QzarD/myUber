@@ -3,6 +3,7 @@ import {StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, Dimension
 import {Ionicons} from "@expo/vector-icons";
 import {debounce} from "lodash";
 import ResultCard from "../components/ResultCard";
+import {autocompleteKey, detailsKey} from "../keys";
 
 
 function WhereScreen({navigation}) {
@@ -25,7 +26,7 @@ function WhereScreen({navigation}) {
     }, [navigation]);
 
     const fetchAddress = (pushFrom, text, lat, lon) => {
-        fetch(`https://maps.googleapis.com/maps/api/place/autocomplete/json?key=AIzaSyCPI7BA17dVl-icguki6m5UwA9qf7DO-Iw&input=${text}&origin=${lat},${lon}&components=country:us`)
+        fetch(autocompleteKey(text,lat,lon))
             .then((response) => response.json())
             .then((responseJson) => {
                 pushFrom ?
@@ -40,7 +41,7 @@ function WhereScreen({navigation}) {
 
     const chooseFrom = (item, pushFrom) => {
         pushFrom ? setAddressFromInput((item.description).split(',')[0]) : setAddressToInput((item.description).split(',')[0]);
-        fetch(`https://maps.googleapis.com/maps/api/place/details/json?placeid=${item.place_id}&key=AIzaSyCPI7BA17dVl-icguki6m5UwA9qf7DO-Iw`)
+        fetch(detailsKey(item.place_id))
             .then((response) => response.json())
             .then((responseJson) => {
                 pushFrom ?

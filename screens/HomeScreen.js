@@ -12,6 +12,7 @@ import {Ionicons, MaterialIcons} from "@expo/vector-icons";
 import Polyline from "@mapbox/polyline";
 import {debounce} from "lodash";
 import Fire from '../Fire';
+import {directionsKey, geocodeKey} from "../keys";
 
 const screen = Dimensions.get('window')
 /*
@@ -123,8 +124,7 @@ const HomeScreen = ({navigation}) => {
 
     const fetchAddress = (lat, lon) => {
         setRegionChangeProgress(true)
-        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${
-            lat},${lon}&key=AIzaSyD4SD_GFjTY_D7jndv6rBP4azTeu6NNQFM`)
+        fetch(geocodeKey(lat, lon))
             .then((response) => response.json())
             .then((responseJson) => {
                 if (mapChooseFromTo && !mapChooseTo) {
@@ -157,7 +157,7 @@ const HomeScreen = ({navigation}) => {
 
     const distanceRound=(distance, rate, min)=>{
         let x=Math.round(distance/rate);
-        if (x<10){
+        if (x<min){
             return  `min ${min}$`
         } else {return `min ${x}$`}
     }
@@ -168,8 +168,7 @@ const HomeScreen = ({navigation}) => {
         let latTo=coordsTo.latitude;
         let lonTo=coordsTo.longitude;
         setGetDirectionsButtonDisabled(true)
-        fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${
-            latFrom},${lonFrom}&destination=${latTo},${lonTo}&key=AIzaSyAxDMt-Yh3pq8AIVDV7EtniQ9HHEFricS8`)
+        fetch(directionsKey(latFrom,lonFrom,latTo,lonTo))
             .then((response) => response.json())
             .then((responseJson) => {
                 const points=Polyline.decode(responseJson.routes[0].overview_polyline.points);
@@ -187,7 +186,8 @@ const HomeScreen = ({navigation}) => {
     }
 
     const hendleOrder=()=>{
-        Fire.shared.addOrder({transportCardChoice:transportCardChoice,
+        Fire.shared.addOrder({
+            transportCardChoice:transportCardChoice,
             distance:distance,
             coords:coords,
             addressFromInput:addressFromInput,
@@ -196,13 +196,16 @@ const HomeScreen = ({navigation}) => {
             coordsTo:coordsTo,
             addInfo:addInfo,
             openOrder:true,
-            completeOrder:false
+            completeOrder:false,
+            driverWaiting:false,
         })
             .then(ref=>{
                 navigation.navigate('FindDriver', {
                     id:ref.id,
                     coords:coords,
                     coordsFrom:coordsFrom,
+                    distance:distance,
+                    transportCardChoice:transportCardChoice,
                 })
             })
             .catch(err=>{

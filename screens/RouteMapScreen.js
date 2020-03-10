@@ -11,6 +11,7 @@ import MapView from 'react-native-maps';
 import {Ionicons, MaterialIcons} from "@expo/vector-icons";
 import Fire from '../Fire';
 import Polyline from "@mapbox/polyline";
+import {directionsKey} from "../keys";
 
 const {width, height} = Dimensions.get('window');
 const ASPECT_RATIO = width / height;
@@ -38,15 +39,19 @@ const RouteMapScreen = ({navigation}) => {
     const [distance, setDistance] = useState(null);
     const [duration, setDuration] = useState(null);
     const [driver, setDriver] = useState({
-        avatar:null,
-        email:null,
-        name:null,
-        nameCar:null,
-        numberCar:null,
-        phoneNumber:null,
+        avatar: null,
+        email: null,
+        name: null,
+        nameCar: null,
+        numberCar: null,
+        phoneNumber: null,
     });
     const [questionBlank, setQuestionBlank] = useState(false);
     const [isTakeOpenOrder, setIsTakeOpenOrder] = useState(false);
+    const [iCame, setICame] = useState(false);
+    const [isDriverWaiting, setIsDriverWaiting] = useState(false);
+    const [driverWaiting, setDriverWaiting] = useState(0);
+    const [allTimeDriverWaiting, setAllTimeDriverWaiting] = useState(0);
 
     useEffect(() => {
         localeCurrentPosition()
@@ -109,8 +114,7 @@ const RouteMapScreen = ({navigation}) => {
         let lonFrom = coordsMyLocation.longitude;
         let latTo = coordsFrom.latitude;
         let lonTo = coordsFrom.longitude;
-        fetch(`https://maps.googleapis.com/maps/api/directions/json?origin=${latFrom},${
-            lonFrom}&destination=${latTo},${lonTo}&key=AIzaSyAxDMt-Yh3pq8AIVDV7EtniQ9HHEFricS8`)
+        fetch(directionsKey(latFrom, lonFrom, latTo, lonTo))
             .then((response) => response.json())
             .then((responseJson) => {
                 const points = Polyline.decode(responseJson.routes[0].overview_polyline.points);
@@ -128,7 +132,7 @@ const RouteMapScreen = ({navigation}) => {
     }
 
     const takeOpenOrder = () => {
-        let idDriver=Fire.shared.uid;
+        let idDriver = Fire.shared.uid;
         let col = Fire.shared.firestore.collection("orders")
         col.doc(idOrder)
             .get()
@@ -139,13 +143,13 @@ const RouteMapScreen = ({navigation}) => {
                         .update({
                             openOrder: false,
                             driver: {
-                                uid:idDriver,
-                                avatar:driver.avatar,
-                                email:driver.email,
-                                name:driver.name,
-                                nameCar:driver.nameCar,
-                                numberCar:driver.numberCar,
-                                phoneNumber:driver.phoneNumber,
+                                uid: idDriver,
+                                avatar: driver.avatar,
+                                email: driver.email,
+                                name: driver.name,
+                                nameCar: driver.nameCar,
+                                numberCar: driver.numberCar,
+                                phoneNumber: driver.phoneNumber,
                                 duration: duration
                             }
                         })
@@ -179,32 +183,66 @@ const RouteMapScreen = ({navigation}) => {
             });
     }
 
+    const driverWaitingStart = () => {
+        const time = Fire.shared.timestamp
+        Fire.shared.firestore.collection("orders").doc(idOrder)
+            .update({
+                driverWaiting: true,
+                driverWaitingTimeStart: time
+            })
+            .then(() => {
+                setDriverWaiting(time);
+                setIsDriverWaiting(true)
+            })
+    }
+    const driverWaitingStop = () => {
+        const time = Fire.shared.timestamp
+        Fire.shared.firestore.collection("orders").doc(idOrder)
+            .update({
+                driverWaiting: false,
+                driverWaitingTimeStop: time
+            })
+            .then(() => {
+                setIsDriverWaiting(false)
+                const waitTime = time - driverWaiting
+                if (allTimeDriverWaiting === 0) {
+                    setAllTimeDriverWaiting(waitTime)
+                } else {
+                    const newWaitTime = allTimeDriverWaiting + waitTime
+                    setAllTimeDriverWaiting(newWaitTime)
+                }
+            })
+    }
+
     const finishTrip = () => {
         Fire.shared.firestore.collection("orders").doc(idOrder)
             .update({
-                completeOrder: true
+                completeOrder: true,
+                allTimeDriverWaiting:allTimeDriverWaiting
             })
             .then(() => {
                 navigation.navigate('HomeDriver', {lastUpdate: new Date()})
             })
     }
 
-    const distanceRound=(distance, rate, min)=>{
-        let x=Math.round(distance/rate);
-        if (x<10){
-            return  `${min}$`
-        } else {return `${x}$`}
+    const distanceRound = (distance, rate, min) => {
+        let x = Math.round(distance / rate);
+        if (x < 10) {
+            return `${min}$`
+        } else {
+            return `${x}$`
+        }
     }
 
-    const rateCar=()=>{
-        let transportCardChoice=client.transportCardChoice
-        if (transportCardChoice===2){
+    const rateCar = () => {
+        let transportCardChoice = client.transportCardChoice
+        if (transportCardChoice === 2) {
             return 90
         }
-        if (transportCardChoice===3){
+        if (transportCardChoice === 3) {
             return 70
         }
-        if (transportCardChoice===4){
+        if (transportCardChoice === 4) {
             return 40
         } else {
             return 100
@@ -221,7 +259,7 @@ const RouteMapScreen = ({navigation}) => {
                     scrollEnabled={true}
                     showsMyLocationButton={false}
                     initialRegion={coordsMyLocation}
-                    onMapReady={()=>{
+                    onMapReady={() => {
                         isAgree ? getDirections(coordsMyLocation, coordsFrom) : fitPadding()
                     }}
                     ref={ref => {
@@ -291,8 +329,11 @@ const RouteMapScreen = ({navigation}) => {
                 <View style={styles.isTakeOpenOrder}>
                     <Text>Client: {client.user.name}</Text>
                     <Text>Address From: {client.addressFromInput}</Text>
-                    <Text> $</Text>
-                    {client.addInfo && <Text>Add Info: {client.addInfo}</Text>}
+                    {allTimeDriverWaiting!==0?<Text>All waiting time: {Math.round(allTimeDriverWaiting/60000)} minutes</Text>:null}
+                    <Text>{distanceRound(client.distance, rateCar(),
+                        client.transportCardChoice === 4 ? 30
+                            : client.transportCardChoice === 3 ? 20 : client.transportCardChoice === 2 ? 15 : 10)}</Text>
+                    {client.addInfo?<Text>Add Info: {client.addInfo}</Text>:null}
                     <View style={styles.isTakeOpenOrder_row}>
                         <TouchableOpacity style={styles.isTakeOpenOrder_button}
                                           onPress={() => Linking.openURL(`tel:${client.user.phoneNumber}`)}>
@@ -303,18 +344,41 @@ const RouteMapScreen = ({navigation}) => {
                                       color="#fb5d58"/>
                         </TouchableOpacity>
                     </View>
-                    <View style={styles.isTakeOpenOrder_row_blackButtons}>
-                        <TouchableOpacity style={styles.isTakeOpenOrder_row_blackButton}
-                                          onPress={() => setCoordsDriver(null)}>
-                            <Text style={styles.isTakeOpenOrder_row_blackButton_text}>I came</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.isTakeOpenOrder_row_blackButton}>
-                            <Text style={styles.isTakeOpenOrder_row_blackButton_text}>Picked up</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity style={styles.isTakeOpenOrder_row_blackButton}
-                                          onPress={() => finishTrip()}>
-                            <Text style={styles.isTakeOpenOrder_row_blackButton_text}>Finish the trip</Text>
-                        </TouchableOpacity>
+                    <View style={[styles.isTakeOpenOrder_row_blackButtons,
+                        {justifyContent: iCame?'space-between':'center'}]}>
+                        {!iCame ?
+                            <>
+                                <TouchableOpacity style={styles.isTakeOpenOrder_row_blackButton}
+                                                  onPress={() => {
+                                                      setCoordsDriver(null);
+                                                      driverWaitingStart()
+                                                      setICame(true)
+                                                  }}>
+                                    <Text style={styles.isTakeOpenOrder_row_blackButton_text}>I came</Text>
+                                </TouchableOpacity>
+                            </>
+                            :
+                            <>
+                                <TouchableOpacity style={styles.isTakeOpenOrder_row_blackButton}
+                                                  onPress={() => {
+                                                      isDriverWaiting
+                                                          ? driverWaitingStop()
+                                                          : driverWaitingStart()
+                                                  }}>
+                                    <Text style={styles.isTakeOpenOrder_row_blackButton_text}>
+                                        {isDriverWaiting
+                                        ? 'Picked up'
+                                        : 'Start waiting clients'}
+                                    </Text>
+                                </TouchableOpacity>
+
+                                <TouchableOpacity style={styles.isTakeOpenOrder_row_blackButton}
+                                                  onPress={() => finishTrip()}>
+                                    <Text style={styles.isTakeOpenOrder_row_blackButton_text}>Finish the trip</Text>
+                                </TouchableOpacity>
+                            </>
+                        }
+
                     </View>
                 </View>
                 }
@@ -467,7 +531,6 @@ const styles = StyleSheet.create({
     isTakeOpenOrder_ico: {},
     isTakeOpenOrder_row_blackButtons: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
         height: 30,
         marginTop: 20
     },

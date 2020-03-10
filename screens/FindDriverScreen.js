@@ -16,10 +16,13 @@ const screen = Dimensions.get('window')
 function FindDriverScreen({navigation}) {
     const id = navigation.getParam('id');
     const coords = navigation.getParam('coords');
+    const distance = navigation.getParam('distance');
+    const transportCardChoice = navigation.getParam('transportCardChoice');
     const [coordsMyLocation, setCoordsMyLocation] = useState({latitude: null, longitude: null});
     const [driver, setDriver] = useState(null);
     const [isCompleteOrder, setIsCompleteOrder] = useState(false);
     const [stars, setStars] = useState(1);
+    const [midRating, setMidRating] = useState(0);
 
 
     useEffect(() => {
@@ -35,6 +38,7 @@ function FindDriverScreen({navigation}) {
                 } else {
                     if (ref.openOrder === false) {
                         setDriver(ref.driver);
+                        calcRating(ref.driver.uid);
                         checkOrderStatus()
                     } else {
                         setTimeout(checkOrderStatus, driver ? 10000 : 5000)
@@ -44,6 +48,16 @@ function FindDriverScreen({navigation}) {
             })
             .catch(err => {
                 alert('You canceled the order')
+            })
+    }
+
+    const calcRating=(idDriver)=>{
+        Fire.shared.firestore.collection('users').doc(idDriver).get()
+            .then(doc=>{
+                let rating=doc.data().rating
+                let sumRating=rating.reduce((a,b)=>a+b,0)
+                let midRating=sumRating/rating.length
+                setMidRating(midRating)
             })
     }
 
@@ -81,6 +95,27 @@ function FindDriverScreen({navigation}) {
             latitudeDelta: 0.001,
             longitudeDelta: 0.004,
         });
+    }
+
+    const distanceRound=(distance, rate, min)=>{
+        let x=Math.round(distance/rate);
+        if (x<10){
+            return  `${min}$`
+        } else {return `${x}$`}
+    }
+
+    const rateCar=()=>{
+        if (transportCardChoice===2){
+            return 90
+        }
+        if (transportCardChoice===3){
+            return 70
+        }
+        if (transportCardChoice===4){
+            return 40
+        } else {
+            return 100
+        }
     }
 
     return (
@@ -123,6 +158,7 @@ function FindDriverScreen({navigation}) {
             {driver
                 ? (!isCompleteOrder && <View style={styles.isTakeOpenOrder}>
                     <Text>Driver: {driver.name}</Text>
+                    <Text>Rating: {midRating}</Text>
                     <Text>Car: {driver.nameCar}, number: {driver.numberCar}</Text>
                     <Text>Waiting time: {driver.duration}</Text>
                     <View style={styles.isTakeOpenOrder_row}>
@@ -147,6 +183,14 @@ function FindDriverScreen({navigation}) {
             }
             {isCompleteOrder &&
                 <View style={styles.isCompleteOrder}>
+                    <Text style={styles.isCompleteOrder_title}>You need to pay:</Text>
+                    <View style={styles.isCompleteOrder_pay}>
+                        <Ionicons style={styles.isCompleteOrder_pay_ico} name="ios-cash" size={30} color="black"/>
+                        <Text style={styles.isCompleteOrder_text}>
+                            {distanceRound(distance, rateCar(),
+                                transportCardChoice===4?30:transportCardChoice===3?20:transportCardChoice===2?15:10)}
+                        </Text>
+                    </View>
                     <Text style={styles.isCompleteOrder_title}>Driver rating:</Text>
                     <View style={styles.isCompleteOrder_starsRow}>
                         <TouchableOpacity onPress={()=>setStars(1)}>
@@ -171,8 +215,8 @@ function FindDriverScreen({navigation}) {
                         </TouchableOpacity>
                     </View>
                     <TouchableOpacity style={styles.isCompleteOrder_button} onPress={()=>{
-                        sendDriverRating()
-                        setIsCompleteOrder(false)
+                        sendDriverRating();
+                        setIsCompleteOrder(false);
                         navigation.navigate('Home', {lastUpdate: new Date()})
                     }}>
                         <Text style={styles.isCompleteOrder_button_title}>OK</Text>
@@ -273,8 +317,8 @@ const styles = StyleSheet.create({
     },
     isCompleteOrder: {
         position:'absolute',
-        top:(screen.height/2 - 85),
-        height:170,
+        top:(screen.height/2 - 117),
+        height:234,
         left:(screen.width/2 - 150),
         width:300,
         backgroundColor:'white',
@@ -286,6 +330,17 @@ const styles = StyleSheet.create({
     isCompleteOrder_title:{
         textAlign: 'center',
         marginBottom:15
+    },
+    isCompleteOrder_pay:{
+        flexDirection:'row',
+        justifyContent:'center',
+        marginBottom:15
+    },
+    isCompleteOrder_pay_ico:{
+        marginRight:10,
+    },
+    isCompleteOrder_text:{
+        marginTop:3,
     },
     isCompleteOrder_starsRow:{
         flexDirection:'row',
@@ -299,7 +354,7 @@ const styles = StyleSheet.create({
         height:40,
         marginHorizontal:40,
         borderRadius:10,
-        justifyContent:'center'
+        justifyContent:'center',
     },
     isCompleteOrder_button_title:{
         textAlign:'center',
