@@ -5,7 +5,6 @@ import {createAppContainer, createSwitchNavigator} from "react-navigation";
 import {createStackNavigator} from "react-navigation-stack";
 import HomeScreen from "./screens/HomeScreen";
 import SignupScreen from "./screens/SignupScreen";
-import {Ionicons} from '@expo/vector-icons';
 import LoginScreen from "./screens/LoginScreen";
 import LoadingScreen from "./screens/LoadingScreen";
 import WhereScreen from "./screens/WhereScreen";
@@ -13,6 +12,8 @@ import FindDriverScreen from "./screens/FindDriverScreen";
 import { createDrawerNavigator } from 'react-navigation-drawer';
 import DriverScreen from "./screens/DriverScreen";
 import RouteMapScreen from "./screens/RouteMapScreen";
+import drawerContentComponents from "./components/drawerContentComponents";
+import LogoutScreen from "./screens/LogoutScreen";
 
 
 if (!firebase.apps.length) {
@@ -36,7 +37,12 @@ const MyDrawerNavigator = createDrawerNavigator({
     Driver: {
         screen: DriverContainer,
     },
-});
+    Logout: {
+        screen: LogoutScreen,
+    },
+}/*,
+    {contentComponent: drawerContentComponents,}*/
+);
 
 
 const AuthStack = createStackNavigator({

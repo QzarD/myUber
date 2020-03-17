@@ -1,0 +1,832 @@
+-- Merging decision tree log ---
+manifest
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:1:1-106:12
+INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:1:1-106:12
+INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:1:1-106:12
+INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:1:1-106:12
+MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:17:1-42:12
+MERGED from [com.google.firebase:firebase-analytics:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-analytics-17.2.2.aar\8f689ceab8793f12ecea662261b2793c\AndroidManifest.xml:2:1-9:12
+MERGED from [:react-native-screens] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\react-native-screens\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-reanimated] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-gesture-handler] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-permissions] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-permissions\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-react-native-adapter] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.61.5.aar\d95d91374c25d395f2eef6de462077a5\AndroidManifest.xml:2:1-13:12
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\material-1.0.0.aar\b84b971f05dd7d8b94b82d5eff42cb07\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\appcompat-1.1.0.aar\424f8db433d0e67346dcc4ad3734b3c9\AndroidManifest.xml:17:1-24:12
+MERGED from [:expo-app-loader-provider] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-constants] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-constants\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-error-recovery] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-error-recovery\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-30:12
+MERGED from [:expo-font] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-font\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-keep-awake] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-linear-gradient] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-location] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-location\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-21:12
+MERGED from [:expo-sqlite] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-sqlite\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:expo-web-browser] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-web-browser\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-barcode-scanner-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-camera-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-constants-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-face-detector-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-file-system-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-font-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-permissions-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-task-manager-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-core] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\@unimodules\core\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-image-loader-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [:unimodules-sensors-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:2:1-11:12
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\4baf361410b3e72ec3ccee5b55d1c203\AndroidManifest.xml:2:1-11:12
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-19.0.0.aar\f4dec6afb3404bf303f09f8e663e8186\AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\c1eb5faa0e83bde9df3d55b19b11c790\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:17:1-36:12
+MERGED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:17:1-47:12
+MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-17.0.0.aar\200309e3afd43d0bfafa4b44d4a2a2c6\AndroidManifest.xml:2:1-10:12
+MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-base-17.1.0.aar\3e2bbe5d6f1ac4f752e2c7bfa4faa049\AndroidManifest.xml:17:1-29:12
+MERGED from [com.google.firebase:firebase-common:19.3.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-common-19.3.0.aar\2a46bfd87c07241e25bfe5dc9a399c84\AndroidManifest.xml:15:1-39:12
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-tasks-17.0.0.aar\6330bc6b563571c8640b5cb786d10625\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:17:1-55:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-17.2.2.aar\4590b5bdae9de9b4681ac0717b5c0227\AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:17:1-40:12
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-api-17.2.2.aar\5fbae9ab266656b62430b21c83f156a0\AndroidManifest.xml:17:1-27:12
+MERGED from [com.google.android.gms:play-services-measurement-base:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-17.2.2.aar\7499d3c382c9c29408b9692bcab13e95\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-stats-17.0.0.aar\5cd00242b06519b3eef8877f57c65984\AndroidManifest.xml:2:1-9:12
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-18.0.0.aar\770badd37ad6e0dfac01b1cec3283d70\AndroidManifest.xml:17:1-25:12
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\99ed448f03ecff7541620c3520cffa30\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-17.0.0.aar\b58c6ad59f6ad3c4180c1ed6ca4a5832\AndroidManifest.xml:17:1-24:12
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-17.0.0.aar\2e20e5fa1d0421738a499bae6cd05aaf\AndroidManifest.xml:17:1-28:12
+MERGED from [androidx.transition:transition:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\transition-1.1.0.aar\9d2e0d80db253f37b5f2236a79b6e215\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\browser-1.0.0.aar\cbd6a4f2bf6c42e2a8d9a7760aedc392\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\9aba1e8de8755d8ba3d2a2caf5ce97dc\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\46a41bb7b4026d77c393971655e8ce6d\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\db7c82affef706f9f68c82eb9f1a9458\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\38dff41fffa65442a825836050d20ea2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\e4bd20586ecac5d7a3f88202ac3074ee\AndroidManifest.xml:17:1-22:12
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\b7b658e75b351552e0d9b613d9280e87\AndroidManifest.xml:2:1-12:12
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\fragment-1.1.0.aar\7158f52e26e49cbba06c9e980cd7f458\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\e32b3655a8b24e551343ce3472d098bf\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\appcompat-resources-1.1.0.aar\eb042a1174a92fed00ea414e686b9832\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\b322f1b4f046705c4222f0b1d57d9141\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\e1e473181af22ecc689963bbfdb74d63\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\f87ba91e5be1594fcd1bd5a7d343cac3\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\bc488d12c6efdd1782179a80d68c280b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.media:media:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\730ec74804a07a765c9b1f522a126f06\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\5d8b460120481827857634cb2ffef563\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\f28a06ae78594aeedeb1d7f8cae312eb\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\activity-1.0.0.aar\80ca4d0dd08aa419539c9129369f7011\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.1.0.aar\37c3924abc2af03dea30429a839fc921\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.1.0.aar\6dc2d9e7f87a84c43f4d723c8a2661a1\AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.core:core:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\core-1.1.0.aar\1d09dff70507e786b8bb67b29437b807\AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0.aar\097e2b4619669960fbe6ac8aac8bf6ea\AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\f4eae00ce07ac35c5b64bfb9c79d4d2f\AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-components-16.0.0.aar\9bbb3bfb499c9afe2ef336e5baf114c7\AndroidManifest.xml:15:1-23:12
+MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\fresco-2.0.0.aar\b325af5a379ed59e431da0730d88c710\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-2.0.0.aar\8edbfa21fb44a9b1069915434f40a3ed\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:drawee:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\drawee-2.0.0.aar\9c2c06e789202355b6f3ba18ad4ea3ce\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\nativeimagefilters-2.0.0.aar\d5010efe910909e264be7aa004de66f9\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\imagepipeline-2.0.0.aar\a7e0e5d909363fc8915de2ad150979d0\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\nativeimagetranscoder-2.0.0.aar\52eed2ac57b2433bdc6184e4575f7e17\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-2.0.0.aar\ac96c8be4f1ff89a748dce4d6b660686\AndroidManifest.xml:2:1-9:12
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\ca6f196d4ac9baa6da8d6855daa4f02f\AndroidManifest.xml:2:1-13:12
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\5c414962b050e4df7483e9ea95e001ad\AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\9bda909e2027bfb3bbfa74d1ae6810f6\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\2000cec315bf5ab27d06c7ebb7ccf83e\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\08b79112c9c8a7392deb58ba4290ef8a\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\5f28d5e40bce2e03a7c65c4da5628055\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\7df39469b8694fc782134cbcd503ebd3\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\b7a62da08f2bf08293764ff3fd3868be\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\2d6896a696bd1951dd7b1b6e06ac79db\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\7f876dec56e127a2323563ff9f47b114\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.1.0.aar\c268330e80a59f7dfe388afaa64d251b\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.1.0.aar\ca3ee7491e5f6066a935e8eeaefceac2\AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\savedstate-1.0.0.aar\4df6c3f108189564174051eae4c500d7\AndroidManifest.xml:17:1-24:12
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:2:1-30:12
+MERGED from [com.facebook.fresco:fbcore:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-fbcore-2.0.0.aar\521074ca653aee403240f2143eaba582\AndroidManifest.xml:2:1-9:12
+INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:1:1-106:12
+INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:1:1-106:12
+INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:1:1-106:12
+	package
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:2:5-25
+		INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+	android:versionName
+		INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:1:1-106:12
+		INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+	android:versionCode
+		INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:1:1-106:12
+		INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:4:5-67
+MERGED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:12:5-67
+MERGED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:12:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:22:5-67
+MERGED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:22:5-67
+MERGED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:23:5-67
+MERGED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-api-17.2.2.aar\5fbae9ab266656b62430b21c83f156a0\AndroidManifest.xml:23:5-67
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-api-17.2.2.aar\5fbae9ab266656b62430b21c83f156a0\AndroidManifest.xml:23:5-67
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:4:22-64
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:5:5-77
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:5:22-75
+uses-permission#android.permission.WAKE_LOCK
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:6:5-68
+MERGED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:24:5-68
+MERGED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:24:5-68
+MERGED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:24:5-68
+MERGED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-api-17.2.2.aar\5fbae9ab266656b62430b21c83f156a0\AndroidManifest.xml:25:5-68
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-api-17.2.2.aar\5fbae9ab266656b62430b21c83f156a0\AndroidManifest.xml:25:5-68
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:6:22-65
+permission#com.myuber.permission.C2D_MESSAGE
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:7:5-9:47
+	android:protectionLevel
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:9:9-44
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:8:9-57
+uses-permission#com.myuber.permission.C2D_MESSAGE
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:10:5-73
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:10:22-70
+uses-permission#android.permission.VIBRATE
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:13:5-66
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:13:22-63
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:14:5-80
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:14:22-78
+uses-permission#android.permission.MANAGE_DOCUMENTS
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:17:5-75
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:17:22-72
+uses-permission#android.permission.READ_INTERNAL_STORAGE
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:18:5-80
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:18:22-77
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:19:5-75
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:19:22-72
+uses-permission#android.permission.USE_FINGERPRINT
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:20:5-74
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:20:22-71
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:22:5-80
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:22:22-77
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:25:5-81
+MERGED from [:expo-location] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-location\android\build\intermediates\library_manifest\release\AndroidManifest.xml:11:5-81
+MERGED from [:expo-location] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-location\android\build\intermediates\library_manifest\release\AndroidManifest.xml:11:5-81
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:12:5-81
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:12:5-81
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:25:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:26:5-79
+MERGED from [:expo-location] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-location\android\build\intermediates\library_manifest\release\AndroidManifest.xml:12:5-79
+MERGED from [:expo-location] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-location\android\build\intermediates\library_manifest\release\AndroidManifest.xml:12:5-79
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:14:5-79
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:14:5-79
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:26:22-76
+uses-permission#android.permission.CAMERA
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:27:5-65
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:27:22-62
+uses-permission#android.permission.READ_CONTACTS
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:28:5-72
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:28:22-69
+uses-permission#android.permission.READ_CALENDAR
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:29:5-72
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:29:22-69
+uses-permission#android.permission.WRITE_CALENDAR
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:30:5-73
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:30:22-70
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:31:5-80
+MERGED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:14:5-80
+MERGED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:14:5-80
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:31:22-77
+uses-permission#android.permission.RECORD_AUDIO
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:32:5-71
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:32:22-68
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:33:5-81
+MERGED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:13:5-81
+MERGED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:13:5-81
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:33:22-78
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:34:5-73
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:34:22-70
+application
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:37:5-104:19
+MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:23:5-40:19
+MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:23:5-40:19
+MERGED from [com.google.firebase:firebase-analytics:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-analytics-17.2.2.aar\8f689ceab8793f12ecea662261b2793c\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-analytics:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-analytics-17.2.2.aar\8f689ceab8793f12ecea662261b2793c\AndroidManifest.xml:7:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.61.5.aar\d95d91374c25d395f2eef6de462077a5\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.61.5.aar\d95d91374c25d395f2eef6de462077a5\AndroidManifest.xml:11:5-20
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\material-1.0.0.aar\b84b971f05dd7d8b94b82d5eff42cb07\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\material-1.0.0.aar\b84b971f05dd7d8b94b82d5eff42cb07\AndroidManifest.xml:22:5-20
+MERGED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:17:5-28:19
+MERGED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:17:5-28:19
+MERGED from [:expo-location] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-location\android\build\intermediates\library_manifest\release\AndroidManifest.xml:15:5-19:19
+MERGED from [:expo-location] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-location\android\build\intermediates\library_manifest\release\AndroidManifest.xml:15:5-19:19
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-19.0.0.aar\f4dec6afb3404bf303f09f8e663e8186\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-19.0.0.aar\f4dec6afb3404bf303f09f8e663e8186\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\c1eb5faa0e83bde9df3d55b19b11c790\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\c1eb5faa0e83bde9df3d55b19b11c790\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:26:5-34:19
+MERGED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:26:5-34:19
+MERGED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:28:5-45:19
+MERGED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:28:5-45:19
+MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-17.0.0.aar\200309e3afd43d0bfafa4b44d4a2a2c6\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-17.0.0.aar\200309e3afd43d0bfafa4b44d4a2a2c6\AndroidManifest.xml:7:5-8:19
+MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-base-17.1.0.aar\3e2bbe5d6f1ac4f752e2c7bfa4faa049\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-base-17.1.0.aar\3e2bbe5d6f1ac4f752e2c7bfa4faa049\AndroidManifest.xml:22:5-27:19
+MERGED from [com.google.firebase:firebase-common:19.3.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-common-19.3.0.aar\2a46bfd87c07241e25bfe5dc9a399c84\AndroidManifest.xml:25:5-37:19
+MERGED from [com.google.firebase:firebase-common:19.3.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-common-19.3.0.aar\2a46bfd87c07241e25bfe5dc9a399c84\AndroidManifest.xml:25:5-37:19
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-tasks-17.0.0.aar\6330bc6b563571c8640b5cb786d10625\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-tasks-17.0.0.aar\6330bc6b563571c8640b5cb786d10625\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:28:5-53:19
+MERGED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:28:5-53:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-17.2.2.aar\4590b5bdae9de9b4681ac0717b5c0227\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement-sdk:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-17.2.2.aar\4590b5bdae9de9b4681ac0717b5c0227\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:28:5-38:19
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:28:5-38:19
+MERGED from [com.google.android.gms:play-services-measurement-base:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-17.2.2.aar\7499d3c382c9c29408b9692bcab13e95\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-measurement-base:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-17.2.2.aar\7499d3c382c9c29408b9692bcab13e95\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-stats-17.0.0.aar\5cd00242b06519b3eef8877f57c65984\AndroidManifest.xml:7:5-20
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-stats-17.0.0.aar\5cd00242b06519b3eef8877f57c65984\AndroidManifest.xml:7:5-20
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-18.0.0.aar\770badd37ad6e0dfac01b1cec3283d70\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-18.0.0.aar\770badd37ad6e0dfac01b1cec3283d70\AndroidManifest.xml:22:5-23:19
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\99ed448f03ecff7541620c3520cffa30\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\99ed448f03ecff7541620c3520cffa30\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-17.0.0.aar\b58c6ad59f6ad3c4180c1ed6ca4a5832\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-17.0.0.aar\b58c6ad59f6ad3c4180c1ed6ca4a5832\AndroidManifest.xml:22:5-20
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-17.0.0.aar\2e20e5fa1d0421738a499bae6cd05aaf\AndroidManifest.xml:22:5-26:19
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-17.0.0.aar\2e20e5fa1d0421738a499bae6cd05aaf\AndroidManifest.xml:22:5-26:19
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\b7b658e75b351552e0d9b613d9280e87\AndroidManifest.xml:10:5-20
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\b7b658e75b351552e0d9b613d9280e87\AndroidManifest.xml:10:5-20
+MERGED from [androidx.core:core:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\core-1.1.0.aar\1d09dff70507e786b8bb67b29437b807\AndroidManifest.xml:24:5-89
+MERGED from [androidx.core:core:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\core-1.1.0.aar\1d09dff70507e786b8bb67b29437b807\AndroidManifest.xml:24:5-89
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0.aar\097e2b4619669960fbe6ac8aac8bf6ea\AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0.aar\097e2b4619669960fbe6ac8aac8bf6ea\AndroidManifest.xml:24:5-25:19
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\ca6f196d4ac9baa6da8d6855daa4f02f\AndroidManifest.xml:11:5-20
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\ca6f196d4ac9baa6da8d6855daa4f02f\AndroidManifest.xml:11:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\5c414962b050e4df7483e9ea95e001ad\AndroidManifest.xml:9:5-20
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\5c414962b050e4df7483e9ea95e001ad\AndroidManifest.xml:9:5-20
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:18:5-28:19
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:18:5-28:19
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\core-1.1.0.aar\1d09dff70507e786b8bb67b29437b807\AndroidManifest.xml:24:18-86
+	android:label
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:39:7-39
+	android:roundIcon
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:41:7-52
+	android:icon
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:40:7-41
+	android:allowBackup
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:42:7-34
+	android:theme
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:43:7-38
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:38:7-38
+activity#com.myuber.MainActivity
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:44:7-53:18
+	android:label
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:46:9-41
+	android:windowSoftInputMode
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:48:9-51
+	android:configChanges
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:47:9-79
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:45:9-37
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:49:9-52:25
+action#android.intent.action.MAIN
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:50:13-65
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:50:21-62
+category#android.intent.category.LAUNCHER
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:51:13-73
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:51:23-70
+meta-data#com.dieam.reactnativepushnotification.notification_channel_name
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:55:9-56:61
+	android:value
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:56:13-59
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:55:21-99
+meta-data#com.dieam.reactnativepushnotification.notification_channel_description
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:57:9-58:68
+	android:value
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:58:13-66
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:57:21-106
+meta-data#com.dieam.reactnativepushnotification.notification_color
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:60:9-61:54
+	android:resource
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:61:13-52
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:60:21-92
+receiver#com.google.android.gms.gcm.GcmReceiver
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:64:9-72:20
+	android:exported
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:66:13-36
+	android:permission
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:67:13-73
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:65:13-66
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE+category:name:com.myuber
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:68:13-71:29
+action#com.google.android.c2dm.intent.RECEIVE
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:69:17-81
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:69:25-78
+category#com.myuber
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:70:17-55
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:70:27-52
+receiver#com.dieam.reactnativepushnotification.modules.RNPushNotificationPublisher
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:75:9-110
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:75:19-107
+receiver#com.dieam.reactnativepushnotification.modules.RNPushNotificationBootEventReceiver
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:76:9-80:20
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:76:19-115
+intent-filter#action:name:android.intent.action.BOOT_COMPLETED
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:77:13-79:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:78:17-79
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:78:25-76
+service#com.dieam.reactnativepushnotification.modules.RNPushNotificationRegistrationService
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:81:9-118
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:81:18-116
+service#com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerServiceGcm
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:84:9-90:19
+	android:exported
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:86:13-37
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:85:13-110
+intent-filter#action:name:com.google.android.c2dm.intent.RECEIVE
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:87:13-89:29
+service#com.dieam.reactnativepushnotification.modules.RNPushNotificationListenerService
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:94:9-100:19
+	android:exported
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:96:13-37
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:95:13-107
+intent-filter#action:name:com.google.firebase.MESSAGING_EVENT
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:97:13-99:29
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:98:17-78
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:98:25-75
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:103:7-84
+	android:name
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml:103:17-81
+uses-sdk
+INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:21:5-44
+MERGED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:21:5-44
+MERGED from [com.google.firebase:firebase-analytics:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-analytics-17.2.2.aar\8f689ceab8793f12ecea662261b2793c\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-analytics:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-analytics-17.2.2.aar\8f689ceab8793f12ecea662261b2793c\AndroidManifest.xml:5:5-44
+MERGED from [:react-native-screens] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\react-native-screens\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-screens] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\react-native-screens\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-reanimated] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\react-native-reanimated\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-gesture-handler] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\react-native-gesture-handler\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-permissions] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-permissions\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-permissions] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-permissions\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-react-native-adapter] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-react-native-adapter] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\@unimodules\react-native-adapter\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.61.5.aar\d95d91374c25d395f2eef6de462077a5\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.61.5] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-react-native-0.61.5.aar\d95d91374c25d395f2eef6de462077a5\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\material-1.0.0.aar\b84b971f05dd7d8b94b82d5eff42cb07\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\material-1.0.0.aar\b84b971f05dd7d8b94b82d5eff42cb07\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\appcompat-1.1.0.aar\424f8db433d0e67346dcc4ad3734b3c9\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\appcompat-1.1.0.aar\424f8db433d0e67346dcc4ad3734b3c9\AndroidManifest.xml:20:5-22:41
+MERGED from [:expo-app-loader-provider] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-app-loader-provider] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-app-loader-provider\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-constants] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-constants\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-constants] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-constants\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-error-recovery] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-error-recovery\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-error-recovery] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-error-recovery\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:8:5-10:41
+MERGED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:8:5-10:41
+MERGED from [:expo-font] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-font\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-font] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-font\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-keep-awake] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-keep-awake] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-keep-awake\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-linear-gradient] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-linear-gradient] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-linear-gradient\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-location] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-location\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-location] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-location\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-sqlite] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-sqlite\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-sqlite] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-sqlite\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-web-browser] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-web-browser\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:expo-web-browser] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-web-browser\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-barcode-scanner-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-barcode-scanner-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-barcode-scanner-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-camera-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-camera-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-camera-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-constants-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-constants-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-constants-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-face-detector-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-face-detector-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-face-detector-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-file-system-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-file-system-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-file-system-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-font-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-font-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-font-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-permissions-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-permissions-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-permissions-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-task-manager-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-task-manager-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-task-manager-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-core] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\@unimodules\core\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-core] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\@unimodules\core\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-image-loader-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-image-loader-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-image-loader-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-sensors-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [:unimodules-sensors-interface] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\unimodules-sensors-interface\android\build\intermediates\library_manifest\release\AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\4baf361410b3e72ec3ccee5b55d1c203\AndroidManifest.xml:7:5-9:41
+MERGED from [org.webkit:android-jsc:r245459] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\android-jsc-r245459.aar\4baf361410b3e72ec3ccee5b55d1c203\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-19.0.0.aar\f4dec6afb3404bf303f09f8e663e8186\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-auth-interop:19.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-interop-19.0.0.aar\f4dec6afb3404bf303f09f8e663e8186\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\c1eb5faa0e83bde9df3d55b19b11c790\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-location:16.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-play-services-location-16.0.0.aar\c1eb5faa0e83bde9df3d55b19b11c790\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-17.0.0.aar\200309e3afd43d0bfafa4b44d4a2a2c6\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-iid-interop:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-interop-17.0.0.aar\200309e3afd43d0bfafa4b44d4a2a2c6\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-base-17.1.0.aar\3e2bbe5d6f1ac4f752e2c7bfa4faa049\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-base-17.1.0.aar\3e2bbe5d6f1ac4f752e2c7bfa4faa049\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-common:19.3.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-common-19.3.0.aar\2a46bfd87c07241e25bfe5dc9a399c84\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.firebase:firebase-common:19.3.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-common-19.3.0.aar\2a46bfd87c07241e25bfe5dc9a399c84\AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-tasks-17.0.0.aar\6330bc6b563571c8640b5cb786d10625\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-tasks:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-tasks-17.0.0.aar\6330bc6b563571c8640b5cb786d10625\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-17.2.2.aar\4590b5bdae9de9b4681ac0717b5c0227\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-17.2.2.aar\4590b5bdae9de9b4681ac0717b5c0227\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-api-17.2.2.aar\5fbae9ab266656b62430b21c83f156a0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-api-17.2.2.aar\5fbae9ab266656b62430b21c83f156a0\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-17.2.2.aar\7499d3c382c9c29408b9692bcab13e95\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-measurement-base:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-17.2.2.aar\7499d3c382c9c29408b9692bcab13e95\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-stats-17.0.0.aar\5cd00242b06519b3eef8877f57c65984\AndroidManifest.xml:5:5-44
+MERGED from [com.google.android.gms:play-services-stats:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-stats-17.0.0.aar\5cd00242b06519b3eef8877f57c65984\AndroidManifest.xml:5:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-18.0.0.aar\770badd37ad6e0dfac01b1cec3283d70\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-measurement-connector:18.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-18.0.0.aar\770badd37ad6e0dfac01b1cec3283d70\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\99ed448f03ecff7541620c3520cffa30\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-places-placereport:16.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-places-placereport-16.0.0.aar\99ed448f03ecff7541620c3520cffa30\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-17.0.0.aar\b58c6ad59f6ad3c4180c1ed6ca4a5832\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-ads-identifier:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-ads-identifier-17.0.0.aar\b58c6ad59f6ad3c4180c1ed6ca4a5832\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-17.0.0.aar\2e20e5fa1d0421738a499bae6cd05aaf\AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-17.0.0.aar\2e20e5fa1d0421738a499bae6cd05aaf\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\transition-1.1.0.aar\9d2e0d80db253f37b5f2236a79b6e215\AndroidManifest.xml:20:5-44
+MERGED from [androidx.transition:transition:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\transition-1.1.0.aar\9d2e0d80db253f37b5f2236a79b6e215\AndroidManifest.xml:20:5-44
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\browser-1.0.0.aar\cbd6a4f2bf6c42e2a8d9a7760aedc392\AndroidManifest.xml:20:5-44
+MERGED from [androidx.browser:browser:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\browser-1.0.0.aar\cbd6a4f2bf6c42e2a8d9a7760aedc392\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\9aba1e8de8755d8ba3d2a2caf5ce97dc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\legacy-support-v4-1.0.0.aar\9aba1e8de8755d8ba3d2a2caf5ce97dc\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\46a41bb7b4026d77c393971655e8ce6d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\recyclerview-1.0.0.aar\46a41bb7b4026d77c393971655e8ce6d\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\db7c82affef706f9f68c82eb9f1a9458\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\legacy-support-core-ui-1.0.0.aar\db7c82affef706f9f68c82eb9f1a9458\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\38dff41fffa65442a825836050d20ea2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\coordinatorlayout-1.0.0.aar\38dff41fffa65442a825836050d20ea2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\e4bd20586ecac5d7a3f88202ac3074ee\AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\legacy-support-core-utils-1.0.0.aar\e4bd20586ecac5d7a3f88202ac3074ee\AndroidManifest.xml:20:5-44
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\b7b658e75b351552e0d9b613d9280e87\AndroidManifest.xml:6:5-8:41
+MERGED from [com.github.bumptech.glide:glide:4.9.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-glide-4.9.0.aar\b7b658e75b351552e0d9b613d9280e87\AndroidManifest.xml:6:5-8:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\fragment-1.1.0.aar\7158f52e26e49cbba06c9e980cd7f458\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\fragment-1.1.0.aar\7158f52e26e49cbba06c9e980cd7f458\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\e32b3655a8b24e551343ce3472d098bf\AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\loader-1.0.0.aar\e32b3655a8b24e551343ce3472d098bf\AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\appcompat-resources-1.1.0.aar\eb042a1174a92fed00ea414e686b9832\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.appcompat:appcompat-resources:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\appcompat-resources-1.1.0.aar\eb042a1174a92fed00ea414e686b9832\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\b322f1b4f046705c4222f0b1d57d9141\AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\drawerlayout-1.0.0.aar\b322f1b4f046705c4222f0b1d57d9141\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\e1e473181af22ecc689963bbfdb74d63\AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\viewpager-1.0.0.aar\e1e473181af22ecc689963bbfdb74d63\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\f87ba91e5be1594fcd1bd5a7d343cac3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\slidingpanelayout-1.0.0.aar\f87ba91e5be1594fcd1bd5a7d343cac3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\bc488d12c6efdd1782179a80d68c280b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\customview-1.0.0.aar\bc488d12c6efdd1782179a80d68c280b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\730ec74804a07a765c9b1f522a126f06\AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\media-1.0.0.aar\730ec74804a07a765c9b1f522a126f06\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\5d8b460120481827857634cb2ffef563\AndroidManifest.xml:20:5-44
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\swiperefreshlayout-1.0.0.aar\5d8b460120481827857634cb2ffef563\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\f28a06ae78594aeedeb1d7f8cae312eb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\asynclayoutinflater-1.0.0.aar\f28a06ae78594aeedeb1d7f8cae312eb\AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\activity-1.0.0.aar\80ca4d0dd08aa419539c9129369f7011\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\activity-1.0.0.aar\80ca4d0dd08aa419539c9129369f7011\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.1.0.aar\37c3924abc2af03dea30429a839fc921\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\vectordrawable-animated-1.1.0.aar\37c3924abc2af03dea30429a839fc921\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.1.0.aar\6dc2d9e7f87a84c43f4d723c8a2661a1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\vectordrawable-1.1.0.aar\6dc2d9e7f87a84c43f4d723c8a2661a1\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\core-1.1.0.aar\1d09dff70507e786b8bb67b29437b807\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.core:core:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\core-1.1.0.aar\1d09dff70507e786b8bb67b29437b807\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0.aar\097e2b4619669960fbe6ac8aac8bf6ea\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\versionedparcelable-1.1.0.aar\097e2b4619669960fbe6ac8aac8bf6ea\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\f4eae00ce07ac35c5b64bfb9c79d4d2f\AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\localbroadcastmanager-1.0.0.aar\f4eae00ce07ac35c5b64bfb9c79d4d2f\AndroidManifest.xml:20:5-44
+MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-components-16.0.0.aar\9bbb3bfb499c9afe2ef336e5baf114c7\AndroidManifest.xml:19:5-21:41
+MERGED from [com.google.firebase:firebase-components:16.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-components-16.0.0.aar\9bbb3bfb499c9afe2ef336e5baf114c7\AndroidManifest.xml:19:5-21:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\fresco-2.0.0.aar\b325af5a379ed59e431da0730d88c710\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fresco:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\fresco-2.0.0.aar\b325af5a379ed59e431da0730d88c710\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-2.0.0.aar\8edbfa21fb44a9b1069915434f40a3ed\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\imagepipeline-okhttp3-2.0.0.aar\8edbfa21fb44a9b1069915434f40a3ed\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\drawee-2.0.0.aar\9c2c06e789202355b6f3ba18ad4ea3ce\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:drawee:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\drawee-2.0.0.aar\9c2c06e789202355b6f3ba18ad4ea3ce\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\nativeimagefilters-2.0.0.aar\d5010efe910909e264be7aa004de66f9\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagefilters:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\nativeimagefilters-2.0.0.aar\d5010efe910909e264be7aa004de66f9\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\imagepipeline-2.0.0.aar\a7e0e5d909363fc8915de2ad150979d0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\imagepipeline-2.0.0.aar\a7e0e5d909363fc8915de2ad150979d0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\nativeimagetranscoder-2.0.0.aar\52eed2ac57b2433bdc6184e4575f7e17\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:nativeimagetranscoder:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\nativeimagetranscoder-2.0.0.aar\52eed2ac57b2433bdc6184e4575f7e17\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-2.0.0.aar\ac96c8be4f1ff89a748dce4d6b660686\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:imagepipeline-base:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\imagepipeline-base-2.0.0.aar\ac96c8be4f1ff89a748dce4d6b660686\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\ca6f196d4ac9baa6da8d6855daa4f02f\AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.6.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\soloader-0.6.0.aar\ca6f196d4ac9baa6da8d6855daa4f02f\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\5c414962b050e4df7483e9ea95e001ad\AndroidManifest.xml:5:5-7:41
+MERGED from [com.github.bumptech.glide:gifdecoder:4.9.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-gifdecoder-4.9.0.aar\5c414962b050e4df7483e9ea95e001ad\AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\9bda909e2027bfb3bbfa74d1ae6810f6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\cursoradapter-1.0.0.aar\9bda909e2027bfb3bbfa74d1ae6810f6\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\2000cec315bf5ab27d06c7ebb7ccf83e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\cardview-1.0.0.aar\2000cec315bf5ab27d06c7ebb7ccf83e\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\08b79112c9c8a7392deb58ba4290ef8a\AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\interpolator-1.0.0.aar\08b79112c9c8a7392deb58ba4290ef8a\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\5f28d5e40bce2e03a7c65c4da5628055\AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\documentfile-1.0.0.aar\5f28d5e40bce2e03a7c65c4da5628055\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\7df39469b8694fc782134cbcd503ebd3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\print-1.0.0.aar\7df39469b8694fc782134cbcd503ebd3\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\b7a62da08f2bf08293764ff3fd3868be\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-2.0.0.aar\b7a62da08f2bf08293764ff3fd3868be\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\2d6896a696bd1951dd7b1b6e06ac79db\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\lifecycle-livedata-core-2.0.0.aar\2d6896a696bd1951dd7b1b6e06ac79db\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\7f876dec56e127a2323563ff9f47b114\AndroidManifest.xml:20:5-44
+MERGED from [androidx.arch.core:core-runtime:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\core-runtime-2.0.0.aar\7f876dec56e127a2323563ff9f47b114\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.1.0.aar\c268330e80a59f7dfe388afaa64d251b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\lifecycle-runtime-2.1.0.aar\c268330e80a59f7dfe388afaa64d251b\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.1.0.aar\ca3ee7491e5f6066a935e8eeaefceac2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\lifecycle-viewmodel-2.1.0.aar\ca3ee7491e5f6066a935e8eeaefceac2\AndroidManifest.xml:20:5-44
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\savedstate-1.0.0.aar\4df6c3f108189564174051eae4c500d7\AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\savedstate-1.0.0.aar\4df6c3f108189564174051eae4c500d7\AndroidManifest.xml:20:5-22:41
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:8:5-10:41
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:8:5-10:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-fbcore-2.0.0.aar\521074ca653aee403240f2143eaba582\AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:fbcore:2.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-fbcore-2.0.0.aar\521074ca653aee403240f2143eaba582\AndroidManifest.xml:5:5-7:41
+INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\src\main\AndroidManifest.xml
+activity#com.google.firebase.auth.internal.FederatedSignInActivity
+ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:24:9-31:50
+	android:excludeFromRecents
+		ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:26:13-46
+	android:launchMode
+		ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:28:13-44
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:27:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:29:13-102
+	android:theme
+		ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:30:13-72
+	tools:replace
+		ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:31:13-47
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:25:13-85
+service#com.google.firebase.components.ComponentDiscoveryService
+ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:33:9-39:19
+MERGED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:27:9-33:19
+MERGED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:27:9-33:19
+MERGED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:29:9-35:19
+MERGED from [com.google.firebase:firebase-common:19.3.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-common-19.3.0.aar\2a46bfd87c07241e25bfe5dc9a399c84\AndroidManifest.xml:32:9-36:35
+MERGED from [com.google.firebase:firebase-common:19.3.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-common-19.3.0.aar\2a46bfd87c07241e25bfe5dc9a399c84\AndroidManifest.xml:32:9-36:35
+	android:exported
+		ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:35:13-37
+	tools:targetApi
+		ADDED from [com.google.firebase:firebase-common:19.3.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-common-19.3.0.aar\2a46bfd87c07241e25bfe5dc9a399c84\AndroidManifest.xml:36:13-32
+	android:directBootAware
+		ADDED from [com.google.firebase:firebase-common:19.3.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-common-19.3.0.aar\2a46bfd87c07241e25bfe5dc9a399c84\AndroidManifest.xml:34:13-43
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:34:13-84
+meta-data#com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar
+ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:36:13-38:85
+	android:value
+		ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:38:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-auth:19.2.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-auth-19.2.0.aar\96c5529a94534b2f223046dafbbf8cbb\AndroidManifest.xml:37:17-109
+uses-permission#android.permission.STORAGE
+ADDED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:15:5-66
+	android:name
+		ADDED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:15:22-63
+provider#expo.modules.filesystem.FileSystemFileProvider
+ADDED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:18:9-27:20
+	android:grantUriPermissions
+		ADDED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:22:13-47
+	android:authorities
+		ADDED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:20:13-74
+	android:exported
+		ADDED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:21:13-37
+	tools:replace
+		ADDED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:23:13-48
+	android:name
+		ADDED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:19:13-74
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:24:13-26:70
+	android:resource
+		ADDED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:26:17-67
+	android:name
+		ADDED from [:expo-file-system] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-file-system\android\build\intermediates\library_manifest\release\AndroidManifest.xml:25:17-67
+uses-permission#android.permission.FOREGROUND_SERVICE
+ADDED from [:expo-location] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-location\android\build\intermediates\library_manifest\release\AndroidManifest.xml:13:5-77
+	android:name
+		ADDED from [:expo-location] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-location\android\build\intermediates\library_manifest\release\AndroidManifest.xml:13:22-74
+service#expo.modules.location.services.LocationTaskService
+ADDED from [:expo-location] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-location\android\build\intermediates\library_manifest\release\AndroidManifest.xml:16:9-18:40
+	android:exported
+		ADDED from [:expo-location] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-location\android\build\intermediates\library_manifest\release\AndroidManifest.xml:18:13-37
+	android:name
+		ADDED from [:expo-location] C:\Users\adminkes\Desktop\androidProjects\myUber\node_modules\expo-location\android\build\intermediates\library_manifest\release\AndroidManifest.xml:17:13-78
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:23:5-79
+MERGED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:22:5-79
+MERGED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:22:5-79
+MERGED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-api-17.2.2.aar\5fbae9ab266656b62430b21c83f156a0\AndroidManifest.xml:24:5-79
+MERGED from [com.google.android.gms:play-services-measurement-sdk-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-sdk-api-17.2.2.aar\5fbae9ab266656b62430b21c83f156a0\AndroidManifest.xml:24:5-79
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:13:5-79
+MERGED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:13:5-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:23:22-76
+meta-data#com.google.firebase.components:com.google.firebase.analytics.connector.internal.AnalyticsConnectorRegistrar
+ADDED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:30:13-32:85
+	android:value
+		ADDED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:32:17-82
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement-api:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-api-17.2.2.aar\0a35bd371c3f230a339f9eee215e87d8\AndroidManifest.xml:31:17-139
+uses-permission#com.google.android.c2dm.permission.RECEIVE
+ADDED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:26:5-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:26:22-79
+meta-data#com.google.firebase.components:com.google.firebase.iid.Registrar
+ADDED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:32:13-34:85
+	android:value
+		ADDED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:34:17-82
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:33:17-96
+receiver#com.google.firebase.iid.FirebaseInstanceIdReceiver
+ADDED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:37:9-44:20
+	android:exported
+		ADDED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:39:13-36
+	android:permission
+		ADDED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:40:13-73
+	android:name
+		ADDED from [com.google.firebase:firebase-iid:20.0.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\firebase-iid-20.0.2.aar\8ced1163976a4ed7addaa69610a412fd\AndroidManifest.xml:38:13-78
+activity#com.google.android.gms.common.api.GoogleApiActivity
+ADDED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-base-17.1.0.aar\3e2bbe5d6f1ac4f752e2c7bfa4faa049\AndroidManifest.xml:23:9-26:75
+	android:exported
+		ADDED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-base-17.1.0.aar\3e2bbe5d6f1ac4f752e2c7bfa4faa049\AndroidManifest.xml:25:13-37
+	android:theme
+		ADDED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-base-17.1.0.aar\3e2bbe5d6f1ac4f752e2c7bfa4faa049\AndroidManifest.xml:26:13-72
+	android:name
+		ADDED from [com.google.android.gms:play-services-base:17.1.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-base-17.1.0.aar\3e2bbe5d6f1ac4f752e2c7bfa4faa049\AndroidManifest.xml:24:13-79
+provider#com.google.firebase.provider.FirebaseInitProvider
+ADDED from [com.google.firebase:firebase-common:19.3.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-common-19.3.0.aar\2a46bfd87c07241e25bfe5dc9a399c84\AndroidManifest.xml:26:9-30:39
+	android:authorities
+		ADDED from [com.google.firebase:firebase-common:19.3.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-common-19.3.0.aar\2a46bfd87c07241e25bfe5dc9a399c84\AndroidManifest.xml:28:13-72
+	android:exported
+		ADDED from [com.google.firebase:firebase-common:19.3.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-common-19.3.0.aar\2a46bfd87c07241e25bfe5dc9a399c84\AndroidManifest.xml:29:13-37
+	android:initOrder
+		ADDED from [com.google.firebase:firebase-common:19.3.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-common-19.3.0.aar\2a46bfd87c07241e25bfe5dc9a399c84\AndroidManifest.xml:30:13-36
+	android:name
+		ADDED from [com.google.firebase:firebase-common:19.3.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-firebase-common-19.3.0.aar\2a46bfd87c07241e25bfe5dc9a399c84\AndroidManifest.xml:27:13-77
+uses-permission#com.google.android.finsky.permission.BIND_GET_INSTALL_REFERRER_SERVICE
+ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:26:5-110
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:26:5-110
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:26:5-110
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:26:22-107
+receiver#com.google.android.gms.measurement.AppMeasurementReceiver
+ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:29:9-33:20
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:31:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:32:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:30:13-85
+receiver#com.google.android.gms.measurement.AppMeasurementInstallReferrerReceiver
+ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:34:9-42:20
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:29:9-37:20
+MERGED from [com.google.android.gms:play-services-measurement-impl:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-impl-17.2.2.aar\87577f0336ee7f87cbf3818146d8fc8e\AndroidManifest.xml:29:9-37:20
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:36:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:37:13-36
+	android:permission
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:38:13-69
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:35:13-100
+intent-filter#action:name:com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:39:13-41:29
+action#com.android.vending.INSTALL_REFERRER
+ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:40:17-79
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:40:25-76
+service#com.google.android.gms.measurement.AppMeasurementService
+ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:44:9-47:40
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:46:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:47:13-37
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:45:13-84
+service#com.google.android.gms.measurement.AppMeasurementJobService
+ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:48:9-52:72
+	android:enabled
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:50:13-35
+	android:exported
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:51:13-37
+	android:permission
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:52:13-69
+	android:name
+		ADDED from [com.google.android.gms:play-services-measurement:17.2.2] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\play-services-measurement-17.2.2.aar\bd81c6de91f573f782c651b3493a6b19\AndroidManifest.xml:49:13-87
+meta-data#com.google.android.gms.version
+ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-17.0.0.aar\2e20e5fa1d0421738a499bae6cd05aaf\AndroidManifest.xml:23:9-25:69
+	android:value
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-17.0.0.aar\2e20e5fa1d0421738a499bae6cd05aaf\AndroidManifest.xml:25:13-66
+	android:name
+		ADDED from [com.google.android.gms:play-services-basement:17.0.0] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-play-services-basement-17.0.0.aar\2e20e5fa1d0421738a499bae6cd05aaf\AndroidManifest.xml:24:13-58
+uses-permission#com.google.android.providers.gsf.permission.READ_GSERVICES
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:15:5-98
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:15:22-95
+uses-permission#com.google.android.gms.permission.ACTIVITY_RECOGNITION
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:16:5-94
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:16:22-91
+service#io.nlopez.smartlocation.activity.providers.ActivityGooglePlayServicesProvider$ActivityRecognitionService
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:19:9-21:40
+	android:exported
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:21:13-37
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:20:13-132
+service#io.nlopez.smartlocation.geofencing.providers.GeofencingGooglePlayServicesProvider$GeofencingService
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:22:9-24:40
+	android:exported
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:24:13-37
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:23:13-127
+service#io.nlopez.smartlocation.geocoding.providers.AndroidGeocodingProvider$AndroidGeocodingService
+ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:25:9-27:40
+	android:exported
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [io.nlopez.smartlocation:library:3.2.11] C:\Users\adminkes\.gradle\caches\transforms-1\files-1.1\jetified-library-3.2.11.aar\eaa1cc18745cba1be701313039f9569a\AndroidManifest.xml:26:13-120

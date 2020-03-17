@@ -1,0 +1,1 @@
+java -jar C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\build\outputs\bundle\release\bundletool.jar build-apks --bundle=C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\build\outputs\bundle\release\app.aab --output=C:\Users\adminkes\Desktop\androidProjects\myUber\android\app\build\outputs\bundle\release\app.apks --mode=universal

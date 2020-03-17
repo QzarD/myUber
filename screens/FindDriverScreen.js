@@ -56,7 +56,7 @@ function FindDriverScreen({navigation}) {
             .then(doc=>{
                 let rating=doc.data().rating
                 let sumRating=rating.reduce((a,b)=>a+b,0)
-                let midRating=sumRating/rating.length
+                let midRating=(sumRating/rating.length).toFixed(1)
                 setMidRating(midRating)
             })
     }
@@ -158,7 +158,7 @@ function FindDriverScreen({navigation}) {
             {driver
                 ? (!isCompleteOrder && <View style={styles.isTakeOpenOrder}>
                     <Text>Driver: {driver.name}</Text>
-                    <Text>Rating: {midRating}</Text>
+                    <Text>Rating: {midRating} <Ionicons name="ios-star-outline" size={15} color="black"/></Text>
                     <Text>Car: {driver.nameCar}, number: {driver.numberCar}</Text>
                     <Text>Waiting time: {driver.duration}</Text>
                     <View style={styles.isTakeOpenOrder_row}>

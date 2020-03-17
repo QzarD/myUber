@@ -15,3 +15,5 @@ web-report/
 
 keys.js
 config.js
+my-upload-key.keystore
+gradle.properties

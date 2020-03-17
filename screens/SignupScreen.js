@@ -2,6 +2,9 @@ import React from "react";
 import {StyleSheet, Text, TextInput, View, TouchableOpacity, Image, StatusBar} from "react-native";
 import {Ionicons} from "@expo/vector-icons";
 import Fire from '../Fire';
+import * as firebase from "firebase";
+
+
 
 export default class SignupScreen extends React.Component {
     static navigationOptions = {
@@ -17,8 +20,25 @@ export default class SignupScreen extends React.Component {
         errorMessage: null
     };
 
+
     handleSignUp = () => {
         Fire.shared.createUser(this.state.user);
+    };
+    componentDidMount() {
+    }
+
+    handleSignUpTp = (phoneNumber, applicationVerifier) => {
+        /*firebase.auth().signInWithPhoneNumber(this.state.user.name, applicationVerifier)
+            .then(function (confirmationResult) {
+                // SMS sent. Prompt user to type the code from the message, then sign the
+                // user in with confirmationResult.confirm(code).
+                window.confirmationResult = confirmationResult;
+                console.log('Hiii')
+            }).catch(function (error) {
+            console.log('Nooo')
+            // Error; SMS not sent
+            // ...
+        });*/
     };
 
     render() {
@@ -69,9 +89,12 @@ export default class SignupScreen extends React.Component {
                 <TouchableOpacity style={styles.button} onPress={this.handleSignUp}>
                     <Text style={{color: "#FFF", fontWeight: "500"}}>Sign up</Text>
                 </TouchableOpacity>
+                {/*<TouchableOpacity style={styles.button} onPress={this.handleSignUpTp}>
+                    <Text style={{color: "#FFF", fontWeight: "500", marginTop: 50}}>Sign up telephone</Text>
+                </TouchableOpacity>*/}
 
                 <TouchableOpacity
-                    style={{alignSelf: "center", marginTop: 1}}
+                    style={{alignSelf: "center", marginTop: 32}}
                     onPress={() => this.props.navigation.navigate("Login")}
                 >
                     <Text style={{color: "#414959", fontSize: 13}}>

@@ -46,7 +46,6 @@ const HomeScreen = ({navigation}) => {
     const [transportCardChoice, setTransportCardChoice] = useState(1);
     const [showModalAddInfo, setShowModalAddInfo] = useState(false);
     const [addInfo, setAddInfo] = useState('');
-/*    const [openMenu, setOpenMenu] = useState(false);*/
 
     useEffect(() => {
         localeCurrentPosition();
@@ -84,8 +83,7 @@ const HomeScreen = ({navigation}) => {
                         longitude: position.coords.longitude,
                         latitudeDelta: 0.001,
                         longitudeDelta: 0.004,
-                    });/*
-                    fetchAddress(position.coords.latitude, position.coords.longitude)*/
+                    });
                 }
             },
             (error) => {
@@ -134,10 +132,7 @@ const HomeScreen = ({navigation}) => {
                 }
                 setRegionLocationAddress(responseJson.results[0].formatted_address);
                 setRegionChangeProgress(false);
-                /*console.log(responseJson.results[0].formatted_address)*/
-            });/*
-        setRegionLocationAddress('1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA');
-        console.log('1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA');*/
+            });
         setRegionChangeProgress(false);
     }
 
